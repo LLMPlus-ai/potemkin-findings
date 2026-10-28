@@ -1,0 +1,231 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{setspace}\setstretch{1.02}
+\usepackage{booktabs,xspace,graphicx,caption}
+\usepackage{enumitem}\setlist{itemsep=2pt,topsep=4pt,parsep=0pt}
+\captionsetup{font=footnotesize,labelfont=bf,skip=4pt}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}\bibpunct{(}{)}{;}{a}{}{,}
+\xspaceaddexceptions{\%}
+\input{../manuscript/numbers.tex}
+\input{../manuscript/numbers_validity.tex}
+\title{\textbf{Potemkin Findings: Calibrating AI Research Loops with Null Worlds}\\[3pt]
+\large Stage 1 proposal --- \textit{Organization Science} special issue ``AI-Enabled Frontiers in Organizational Science''}
+\date{}
+\begin{document}
+\maketitle
+\vspace{-2em}
+
+\section*{Executive summary: The contribution in one sentence}
+We can trust what an AI research loop finds only if we know how often it would ``find'' the same thing when nothing is
+there. We build tools that measure this on firm data by rerunning the loop's whole search
+on shuffled copies of the data in which the true effect is zero. The result is a valid error rate if every choice made after seeing results is rerun and the shuffle is fair. In our application, an
+unchecked loop reports four significant findings at once in \PotemU\% of worlds in which none is true. A technical appendix and a research artifact accompany this proposal.
+
+\section*{Why this matters now}
+AI agents can now do the whole empirical part of organizational research: they propose ideas, assemble data, run models,
+and revise until the hypotheses ``work.'' Gartenberg et al.\ (2026) report that submissions to this journal rose 42\%
+after ChatGPT while writing quality fell. The special issue asks
+whether AI research loops produce valid social science or ``Potemkin villages of slop,'' impressive fronts with nothing
+behind them.
+
+A loop is a procedure, and every procedure has an error rate, namely how often it reports a
+finding that is not real. What has been missing is a practical way to measure that rate for a loop that changes course as it sees
+results, and to build the search into the $p$-values it reports.
+
+The problem is sharpest in organization science. A typical study claims a main effect and the conditions that make it
+stronger or weaker, on yearly firm data in which each concept has several reasonable measures. Every measure, control
+set, sample rule, and condition is a fork in the road; scholars have long worried about the resulting ``search for
+asterisks'' (Bettis 2012). An AI loop makes that search
+free and invisible.
+
+\section*{How Null-World Calibration works}
+We test a loop the way one tests a smoke alarm, by checking whether it goes off when there is no fire. We run the loop on many copies of the data with no effect (\emph{null worlds}) and count how often it still reports
+success.
+\begin{enumerate}
+\item \textbf{Freeze.} Before any result exists, every choice the loop may make (measures, controls, samples, and
+moderators with their predicted directions) and its search rules are written to a registry and locked with a digital
+fingerprint (a hash), so any later change would show.
+\item \textbf{Run.} The search runs on the real data as code. It tries one version of the analysis after another and stops
+by its own rule, so it can be rerun exactly. Our two coded rules are benchmarks for an agent's search, not
+descriptions of how agents behave (Table~\ref{tab:ledger}).
+\item \textbf{Replay.} We rerun the search on \Bnull null worlds. Each shuffles which firm had which AI exposure among firms
+in the same industry sector and leaves everything else untouched. The shuffle is fair only if, absent an effect, a firm
+could equally have had any sector peer's exposure. Within sectors, exposure is correlated with other traits
+(\VcorrExpRem with digitizable work), so we test this (Key risks). The share of worlds in which the loop reports success
+is its \emph{Potemkin rate}. The share in which it reports a result at least as strong as the real one is a
+\emph{search-adjusted $p$-value}, which already accounts for every analysis tried.
+\item \textbf{Test.} We then test the mechanisms and boundary conditions that theory predicts. If AI takes over junior
+tasks, task-based theory (Autor et al.\ 2003) and the theory of knowledge hierarchies (Garicano 2000) predict a larger
+shift to experienced hires where work is already digital or hierarchies are bottom-heavy (mechanisms), because
+technology takes over codifiable tasks and a hierarchy solves its routine problems at the bottom. Structural-inertia
+theory (Hannan and Freeman 1984) predicts a smaller shift in older firms, whose routines are harder to change (a
+boundary condition). Each
+is tested with a \emph{moderator}, a firm trait that should strengthen or weaken the effect, by shuffling that trait
+among firms of similar sector and exposure. This also breaks the trait's links to other traits, so a small $p$ shows that
+the trait matters, not yet that it changes the effect. Two more kinds of worlds separate the two: a \emph{conditional
+shuffle} moves only the part of the trait that sector, exposure, and the other traits do not explain, and
+\emph{rebuilt-outcome} worlds remove only the trait's effect from the outcomes (Freedman and Lane 1983). The loop picked
+three of ten candidate moderators, so we correct for all ten.
+\item \textbf{Plant.} Effects of known size are added to null worlds to measure how often the loop finds them (power) and
+how much it exaggerates them (the \emph{winner's curse}).
+\end{enumerate}
+Figure~\ref{fig:steps} follows the five steps through our application.
+
+\begin{figure}[t]\centering
+\includegraphics[width=0.96\linewidth]{../figures/fig6_steps.pdf}
+\caption{\textbf{Null-World Calibration step by step, on the application.} (1)~The locked registry: \NbaseSpecs versions
+of the analysis, each able to add up to ten sets of three moderators. (2)~The main-effect (H1) $t$ of each version on the
+real data; the search first found all four hypotheses significant after \ModelsToFirstU models. (3)~Null worlds: the best
+H1 $t$ the search found (top) and the weakest $t$ of the four hypotheses (bottom); lines mark the real values; dark bars
+are false successes. (4)~Each boundary condition or mechanism's search-adjusted $p$ under a simple shuffle (circles), a
+conditional shuffle (squares), and rebuilt outcomes (triangles). A world in which the trait is not reported counts as
+weaker than the real data, so these $p$ reflect strength and selection; open circles use the trait's best $t$ in the
+search, defined in every world. (5)~Planted effects: reported over true size. (Output)~Each result with its own
+search-adjusted $p$, and the correction for ten candidates (open; Holm). Dashed line: 0.05.}
+\label{fig:steps}
+\end{figure}
+
+\section*{What we have done}
+\begin{enumerate}
+\item \textbf{What is new, and what is not.} The guarantee is classical. A shuffle test is exact for any result produced by
+a rule fixed before the data are seen, and a search frozen as code is such a rule (Technical Appendix, Theorem~1; Lehmann
+and Romano 2022). Existing corrections for trying many models need the list of models fixed in advance (White 2000;
+Romano and Wolf 2005), but a loop's list is not fixed; across null worlds, ours fits \VModelsMin to \VModelsMax models and
+reports \VTriples different sets of moderators. Correcting for every model the registry allows is valid but blunt
+($p=\VpTmax$, against $p=\pNWCpkg$ when the actual stopping rule is replayed). We contribute four things that
+make it usable for AI loops: (i)~a replay protocol, under which every choice made after seeing data is code and all else
+is locked beforehand; (ii)~null worlds that keep the structure of firm data; (iii)~measures that fixed-list corrections
+do not give, namely the Potemkin rate of a whole set of findings, risk by the number of models tried, and the winner's
+curse; and (iv)~the open-source Python package \emph{nullworld}, whose engine matches a standard package to
+within $10^{-15}$ and reruns the full loop in \VSecWorld seconds (\VSpeedup times faster).
+
+\item \textbf{Who decided what.} The AI agent proposed the registry from the literature, built the data, and wrote the loop; the authors
+approved the registry before any outcome was computed. Coded rules made every choice during the run (Table~\ref{tab:ledger}). Rule U pursues the registered hypotheses until they work; U-free may also flip a moderator's
+predicted direction after seeing results, as a researcher might explain away a surprise. In null worlds, U reports four significant
+findings within 1,000 models in \VBudUThousand\% of worlds and within the \ModelsToFirstU it used on the real data in
+\VBudUReal\%; U-free does so within 12 models in \VBudFreeTwelve\%.
+
+\begin{table}[t]\centering\footnotesize
+\caption{Who took which decision in the prototype}\label{tab:ledger}
+\setlength{\tabcolsep}{5pt}\begin{tabular}{lll}
+\toprule
+Decision & Taken by & In calibration \\
+\midrule
+Research question and data & Authors & Fixed, outside the loop \\
+Registry (concepts, measures, 10 moderators, search rules) & AI agent; approved by authors & Frozen, locked before results \\
+Data assembly, checks, loop code & AI agent; reviewed by authors & Fixed code \\
+Choices during the search (next model, moderators, stop) & Coded rule (Stage 2: live agent) & Replayed in every world \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\item \textbf{A demanding test case.} Did generative AI lead firms to hire fewer beginners and more experienced workers?
+We linked r\'esum\'e-based job and skill records to company financial data (Compustat), covering \NfirmYears firm-years at
+\Nfirms firms from 2016 to 2025. We compare firms whose work in 2019--2021 was more or less exposed to language models, before and after
+ChatGPT's release (a difference-in-differences design). One standard deviation more exposure
+raises the share of experienced hires by \HoneB percentage points ($t=\HoneT$). Year-by-year estimates, fake release
+dates, and exposure to other kinds of AI point to a break after 2022 specific to language models. The estimate holds even if
+post-2022 trend differences were \Mbar times the largest seen before.
+
+\item \textbf{The diagnostic result.}
+\begin{itemize}
+\item On the real data, rule U found four significant results after
+\ModelsToFirstU models; U-free needed \ModelsToFirstFree. In null worlds, the two rules reported such a set \PotemU\% and
+\PotemFree\% of the time.
+\item With a split-sample guard (search on half of the firms, check once on the other half), no full set emerged in the search half; the main effect held up in the other half
+($t=\GuardConfHoneT$), but only one of its three moderators did.
+\item After accounting for the search, the set as a whole is not significant ($p=\pNWCpkg$), but the main effect is
+significant, since its best $t$ (\HoneMaxT) beats all \Bnull null worlds ($p\le\pNWChOne$). Of the ten candidate moderators, only hierarchy shape survives the correction for testing ten (Holm
+$p=\VHolmTenPyr$; digitizable work \VHolmTenRem, organizational age \VHolmTenAge). Correcting for only the three reported
+would confirm one in \VFwerHolmThree\% of worlds in which none of the ten matters. Nor did the loop pick hierarchy
+shape by luck, since its best $t$ during the search, defined in every world, is never
+beaten in its shuffled worlds ($p\le\VpFreePyr$). Even with all ten moderators shuffled, the loop reports four significant
+findings in \VJointSuccess\% of worlds.
+\end{itemize}
+
+\item \textbf{Measurement checks an unguarded loop would have missed.} The standard skill label ``GitHub Copilot'' is
+correct for only \GitHubValid\% of rows, and a skill's ``first reported'' date tracks when the r\'esum\'e was collected, not
+when the skill was adopted.
+\end{enumerate}
+
+\section*{What we hope to do in Stage 2}
+\begin{enumerate}
+\item \textbf{Live-agent loops.} Replace the coded rule with a real AI agent at the same choices (Table~\ref{tab:ledger}), under two
+instructions: ``test the registered hypotheses'' and ``find support for
+them.'' Each call is logged and repeated in every null world with an open-weight model set to answer the same input the
+same way, so the agent's choices are replayed, not frozen. This places real agents on the risk curve between U and
+U-free, and measures the cost of letting an agent see results early.
+\item \textbf{Concepts measured from text.} Extend null worlds to concepts AI measures from text (earnings calls, job
+postings), where measurement and hypothesis choice interact.
+\item \textbf{A Potemkin-rate service.} An open tool that returns a calibration report for any registry and replayable loop.
+\item \textbf{A many-agent study.} Give several AI agents the same data and question, then calibrate each agent's loop. This
+is the AI version of many-analyst studies (Silberzahn et al.\ 2018; Breznau et al.\ 2022).
+\end{enumerate}
+
+\paragraph{Timeline.} \textbf{January to mid-February 2027:} live-agent replay and the experiment on seeing results
+early. \textbf{By the workshop (19--20 February 2027, Duke University, Fuqua School of Business):} a public release of
+the \emph{nullworld} package with documentation and the synthetic data. \textbf{March--April 2027:} text-measured concepts and the
+many-agent study. \textbf{May 2027:} the calibration service and the final article.
+
+\section*{Key risks and how we address them}
+\begin{itemize}
+\item \textbf{Is the shuffle fair?} In simulations, a trait linked to exposure that only raises or lowers a firm's outcomes
+overall is harmless (\VExLevel\% false alarms at the 5\% level). A trait that changes outcomes after 2022 creates a false
+effect that every test of the exposure--outcome link picks up, calibrated or not. False alarms reach \VExNWCFourFive\% when
+that false effect is only \VExSpurFourFive\% of our estimate. If the trait is measured, worlds that keep exposure's link
+to it restore the correct rate (at most \VExCovMax\% across \VExNcells settings); on the real data, the main effect beats
+all \VBcovA such worlds built on twelve firm traits ($p\le\VcovAph$). Unmeasured traits are left to the design checks.
+\item \textbf{Testing boundary conditions and mechanisms.} In simulations where no moderator truly changes the effect, a
+moderator's own post-2022 trend is harmless (\VMmPermFixTrend\% false alarms). But a correlated moderator with a real
+effect, together with a curved effect of exposure, pushes the simple shuffle to \VMmPermFixAll\%. The conditional shuffle
+keeps the correct rate (\VMmResFixAll\%); rebuilt-outcome worlds are cautious (\VMmFLFixAll\%). On the real data,
+hierarchy shape survives all three.
+\item \textbf{Adoption.} Authors may resist registries. The protocol asks only that inputs that cannot be rerun be frozen
+before results are seen, which AI loops make cheap.
+\item \textbf{Licensed data.} We cannot post the licensed workforce or Compustat data. Following the call's FAQ, the
+research artifact provides a synthetic copy of the data on which the loop and all null worlds can be rerun.
+\end{itemize}
+
+\section*{How organizational and social science would change}
+AI makes exploring cheap, since an agent can try every path. What stays scarce is knowing which discoveries would have appeared
+by chance anyway. If this project succeeds, a manuscript produced with an AI loop would arrive with its locked registry,
+its replayable loop, and its Potemkin rate. Editors and reviewers could judge the procedure, not only the prose, weakening the
+incentive to flood journals with polished but unchecked findings. This is the move toward ``better, not more'' that
+the editors call for (Gartenberg et al.\ 2026).
+
+\section*{Fit with the evaluation criteria}
+\begin{center}\small
+\begin{tabular}{p{3.2cm}p{11.8cm}}
+\toprule
+Criterion & Evidence \\
+\midrule
+Novelty & Exact shuffle tests made usable for AI loops that adapt; error rates for whole searches \\
+Feasibility & Working prototype on \NfirmYears firm-years; \Bnull worlds per kind on one workstation \\
+Stage of development & Validity conditions proved in the technical appendix; simulations of each failure; real-data application \\
+Ethicality & Aggregated, licensed secondary data; no human subjects; full disclosure of AI use \\
+Reproducibility & Research artifact with the locked registry, numbered scripts, and synthetic data; verified references \\
+Scalability & Cost grows in proportion to the number of worlds; runs in parallel \\
+Use and adoption & Drop-in package; a calibration report editors and reviewers can request \\
+Frontier expansion & Turns AI's capacity for search into a measurable, accountable property of research \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{References}
+{\small
+Autor DH, Levy F, Murnane RJ (2003) The skill content of recent technological change: An empirical exploration. \textit{Quart. J. Econom.} 118(4):1279--1333.\par
+Bettis RA (2012) The search for asterisks: Compromised statistical tests and flawed theories. \textit{Strategic Management J.} 33(1):108--113.\par
+Breznau N, et al.\ (2022) Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty. \textit{Proc. Natl. Acad. Sci. USA} 119(44):e2203150119.\par
+Freedman D, Lane D (1983) A nonstochastic interpretation of reported significance levels. \textit{J. Bus. Econom. Statist.} 1(4):292--298.\par
+Garicano L (2000) Hierarchies and the organization of knowledge in production. \textit{J. Political Econom.} 108(5):874--904.\par
+Gartenberg C, Hasan S, Murray A, Pierce L (2026) More versus better: Artificial intelligence, incentives, and the emerging crisis in peer review. \textit{Organ. Sci.} 37(3):795--812.\par
+Hannan MT, Freeman J (1984) Structural inertia and organizational change. \textit{Amer. Sociol. Rev.} 49(2):149--164.\par
+Lehmann EL, Romano JP (2022) \textit{Testing Statistical Hypotheses}, 4th ed. (Springer, Cham).\par
+Romano JP, Wolf M (2005) Stepwise multiple testing as formalized data snooping. \textit{Econometrica} 73(4):1237--1282.\par
+Silberzahn R, et al.\ (2018) Many analysts, one data set: Making transparent how variations in analytic choices affect results. \textit{Adv. Methods Practices Psych. Sci.} 1(3):337--356.\par
+White H (2000) A reality check for data snooping. \textit{Econometrica} 68(5):1097--1126.\par
+}
+\end{document}

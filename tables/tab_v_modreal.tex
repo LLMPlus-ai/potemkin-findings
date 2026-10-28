@@ -1,0 +1,33 @@
+\begin{table}[!htbp]\centering\footnotesize
+\caption{Search-adjusted $p$-values of the reported moderators, by world construction and statistic}\label{tab:v_modreal}
+\setlength{\tabcolsep}{4pt}\begin{tabular}{>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{5.3cm}rrr}
+\toprule
+ & & H2 hierarchy & H3 digitizable & H4 organiz. \\
+ & & shape & work & age \\
+\midrule
+\multicolumn{2}{l}{Observed $t$ in the package ($S^{\text{sel}}=S^{\text{fix}}$)} & 5.57 & 4.57 & 2.60 \\
+\multicolumn{2}{l}{Observed largest screening $t$ ($S^{\text{free}}$)} & 6.27 & 14.84 & 6.99 \\
+\multicolumn{2}{l}{Share of permuted worlds reporting the moderator} & 0.4\% & 92.8\% & 76.6\% \\
+\midrule
+Permute (Type B) & $S^{\text{sel}}$ (reported package) & 0.002 & 0.046 & 0.313 \\
+ & $S^{\text{free}}$ (screening, all worlds) & 0.002 & 0.601 & 0.002 \\
+ & $S^{\text{fix}}$ (reported specification) & 0.002 & 0.018 & 0.022 \\
+ & Holm over ten candidates ($S^{\text{sel}}$) & 0.020 & 0.413 & 1.000 \\
+\addlinespace
+Conditional permute & $S^{\text{sel}}$ (reported package) & 0.002 & 0.054 & 0.234 \\
+ & $S^{\text{free}}$ (screening, all worlds) & 0.002 & 0.337 & 0.004 \\
+ & $S^{\text{fix}}$ (reported specification) & 0.002 & 0.058 & 0.228 \\
+ & Holm over ten candidates ($S^{\text{sel}}$) & 0.020 & 0.485 & 1.000 \\
+\addlinespace
+Null model (Freedman--Lane) & $S^{\text{sel}}$ (reported package) & 0.002 & 0.032 & 0.365 \\
+ & $S^{\text{free}}$ (screening, all worlds) & 0.002 & 0.693 & 0.220 \\
+ & $S^{\text{fix}}$ (reported specification) & 0.002 & 0.184 & 0.146 \\
+ & Holm over ten candidates ($S^{\text{sel}}$) & 0.020 & 0.287 & 1.000 \\
+\addlinespace
+Joint (all ten permuted) & max-$T$ step-down (planned), $S^{\text{sel}}$ & 0.171 & 0.279 & 0.651 \\
+ & min-$P$ step-down, $S^{\text{sel}}$ & 0.010 & 0.678 & 0.678 \\
+ & min-$P$ step-down, $S^{\text{free}}$ (all ten tested) & 0.009 & 0.979 & 0.009 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.97\linewidth}\vspace{2pt}\scriptsize\textit{Notes.} $p=(1+\#\{b: S_b\ge S_{\text{obs}}\})/(B+1)$ with $B=500$ worlds per moderator and construction ($B=1,000$ joint worlds); the smallest attainable $p$ is 0.002 (0.001 for joint worlds). $S^{\text{sel}}$ is $-\infty$ when the loop does not report the moderator, so its $p$ combines strength and selection. Holm over ten treats the seven unreported candidates as $p=1$.\end{minipage}
+\end{table}

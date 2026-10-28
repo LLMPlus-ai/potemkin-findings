@@ -1,0 +1,570 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage{setspace}\setstretch{1.08}
+\usepackage{graphicx,booktabs,amsmath,amssymb,amsthm,xspace,caption,longtable,listings,float,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}\bibpunct{(}{)}{;}{a}{}{,}
+\captionsetup{font=small,labelfont=bf}
+\renewcommand{\thetable}{A\arabic{table}}\renewcommand{\thefigure}{A\arabic{figure}}
+\newtheorem{theorem}{Theorem}\newtheorem{corollary}{Corollary}\newtheorem{assumption}{Assumption}
+\theoremstyle{remark}\newtheorem{remark}{Remark}
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,columns=fullflexible,frame=single}
+\xspaceaddexceptions{\%}
+\input{numbers.tex}
+\input{numbers_validity.tex}
+
+\title{\textbf{Technical Appendix}\\[2pt]\large Potemkin Findings: Calibrating AI Research Loops with Null Worlds}
+\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+\clearpage
+
+%======================================================================
+\section{Formal framework and validity of loop-level inference}\label{sec:theory}
+%======================================================================
+
+\subsection{Objects}
+Let firms $i=1,\dots,N$ be partitioned into strata $g(i)$. The data are $D=(Y,E,M,X,g)$:
+\begin{itemize}
+\item $Y$ is the panel of outcomes;
+\item $E=(E_1,\dots,E_N)$ is the firm-level treatment (possibly several proxies per firm);
+\item $M$ is the firm-level moderators;
+\item $X$ is the panel of controls.
+\end{itemize}
+A \emph{design space} $S$ is a finite set of specifications. Each specification is a tuple (outcome proxy, treatment proxy,
+control set, fixed-effect structure, sample rule, transformation, clustering, moderator subset).
+
+A \emph{search policy} $\pi$ is a deterministic rule that:
+\begin{itemize}
+\item visits specifications in an order that may depend on results already seen;
+\item stops by a rule that may also depend on those results;
+\item returns a report $R$.
+\end{itemize}
+The \emph{loop} is the map $L_{S,\pi}:D\mapsto R$, and $T(R)$ is a real-valued evidence statistic of the report. In this
+paper $T$ is either the largest sign-consistent H1 $t$-statistic visited or the smallest sign-consistent $t$-statistic
+among the four hypotheses in the reported package.
+
+For a permutation $\sigma$ of firm labels, $D^{\sigma}=(Y,E\circ\sigma,M,X,g)$ reassigns each firm the treatment of firm
+$\sigma(i)$ and leaves everything else unchanged. Let $\mathcal G$ be the group of permutations that map each stratum onto
+itself.
+
+\begin{assumption}[Within-stratum exchangeability under the null]\label{ass:exch}
+Under $H_0$, $D^{\sigma}\overset{d}{=}D$ for every $\sigma\in\mathcal G$.
+\end{assumption}
+
+Assumption~\ref{ass:exch} holds, for example, when outcomes, moderators, and controls do not depend on the treatment (the
+sharp null) and the treatment is assigned exchangeably within strata. In observational data it is a design-based
+assumption. It is stronger than the conditional parallel-trends assumption behind the difference-in-differences estimates
+in Section~\ref{sec:testbed}. Null-World Calibration therefore prices \emph{search}; it does not by itself establish
+causality.
+
+\begin{theorem}[Validity of loop-level randomization inference]\label{thm:valid}
+Let $L$ be any deterministic loop whose design space $S$ and policy $\pi$ are fixed independently of the realized data,
+and let $T$ be any real-valued statistic of its report. Draw $\sigma_1,\dots,\sigma_B$ independently and uniformly from
+$\mathcal G$, independently of $D$. Define
+\[
+p_L=\frac{1+\sum_{b=1}^{B}\mathbb 1\{T(L(D^{\sigma_b}))\ge T(L(D))\}}{B+1}.
+\]
+Under Assumption~\ref{ass:exch}, $\Pr(p_L\le\alpha)\le\alpha$ for every $\alpha\in(0,1)$ and every $B\ge1$.
+\end{theorem}
+
+\begin{proof}
+Write $V(D)=T(L(D))$. Because $L$ and $T$ are fixed functions, $V$ is a fixed measurable function of the data.
+
+\emph{Step 1: the $B+1$ datasets are exchangeable.} Let $\rho$ be uniform on $\mathcal G$, independent of $D$ and of
+$(\sigma_b)$. By Assumption~\ref{ass:exch}, $D\overset{d}{=}D^{\rho}$. Applying the map
+$D\mapsto(D,D^{\sigma_1},\dots,D^{\sigma_B})$ to both sides gives
+\[
+(D,D^{\sigma_1},\dots,D^{\sigma_B})\overset{d}{=}(D^{\rho},D^{\sigma_1\rho},\dots,D^{\sigma_B\rho}).
+\]
+Because $\mathcal G$ is a group and $\sigma_b$ is uniform and independent of $\rho$, the elements
+$\rho,\sigma_1\rho,\dots,\sigma_B\rho$ are i.i.d.\ uniform on $\mathcal G$. The right-hand side is therefore an
+exchangeable sequence (conditionally on $D$, and hence unconditionally). So is the left-hand side.
+
+\emph{Step 2: the statistics are exchangeable.} Applying the fixed function $V$ coordinatewise preserves exchangeability,
+so $(V_0,V_1,\dots,V_B)=(V(D),V(D^{\sigma_1}),\dots,V(D^{\sigma_B}))$ is exchangeable.
+
+\emph{Step 3: the rank of $V_0$ is super-uniform.} For an exchangeable vector, the number $K=\#\{b\ge0: V_b\ge V_0\}$
+(which counts $b=0$) satisfies $\Pr(K\le k)\le k/(B+1)$ for $k=1,\dots,B+1$. Ties only increase $K$. Since $p_L=K/(B+1)$,
+$\Pr(p_L\le\alpha)=\Pr(K\le\lfloor\alpha(B+1)\rfloor)\le\lfloor\alpha(B+1)\rfloor/(B+1)\le\alpha$.
+\end{proof}
+
+\begin{remark}[What Theorem~\ref{thm:valid} adds, and what it does not]\label{rem:adds}
+The argument is the classical one for randomization tests: a test is exact for any statistic fixed before the data are
+seen, also when the permutations are drawn at random and the identity is counted
+\citep{lehmann2022testing,hemerik2018exact}. A deterministic loop's report is such a statistic, so the theorem adds no new
+statistical principle. What it adds for AI research loops is the statement of its two hypotheses in checkable form.
+\begin{enumerate}
+\item \emph{Completeness of the replay.} $L$ must be a fixed function of the data. Every choice that depends on outcomes
+must be inside $L$, and none outside. Replayability is how this is verified, and it is necessary but not sufficient. In the
+Monte Carlo, a single pruning step taken after peeking and left out of the replay doubles the size of the test
+(\MCsizeLeak\% instead of \MCsizeLeakReplay\%; Section~\ref{sec:mc}).
+\item \emph{Exchangeability} (Assumption~\ref{ass:exch}). The null worlds must have the distribution of the data under the
+null. Section~\ref{sec:validity} measures what happens when they do not.
+\end{enumerate}
+Fixed-family corrections for data snooping \citep{white2000reality,romano2005stepwise,hansen2005test} rest on the same
+resampling logic, but they need the family of tests enumerated in advance. An adaptive loop's family is itself random. In the
+\Bnull Type~A worlds, the registered loop fits between \VModelsMin and \VModelsMax models (median \VModelsMed), and its
+reported packages use \VTriples different moderator triples on \VBaseDistinct base specifications. Replay prices the path the
+loop actually took. Pricing the whole registered garden instead, through the best package anywhere in the design space, is
+valid but blunter: it gives $p=\VpTmax$ for the real package, against $p=\pNWCpkg$ for the loop's actual stopping rule
+(\texttt{tables/benchmark.json}).
+\end{remark}
+
+\begin{remark}[What adaptivity is allowed, and what breaks validity]
+The loop may search, stop, prune, rationalize signs, or select outcomes and moderators as adaptively as it likes, because
+every null world is processed by the \emph{same} function. Validity breaks when some input to the report depends on $D$
+through a channel that is not replayed in $D^{\sigma}$. Examples are a human or language-model decision made after seeing
+results (``this moderator looks promising''), or a design space edited after an exploratory run. The registry, frozen and
+hashed before outcomes were computed, is the device that rules this out. The ``leakage'' scenario of the Monte Carlo
+(Section~\ref{sec:mc}) quantifies the distortion when it is violated.
+\end{remark}
+
+\begin{corollary}[Search-adjusted moderator tests]\label{cor:mod}
+Fix a moderator $k$ and strata $s(i)=(g(i),q(E_i))$, where $q(\cdot)$ is the treatment quintile. Let $\mathcal G_k$ permute
+the column $M_k$ within strata $s$. Suppose $D^{\sigma}\overset{d}{=}D$ for $\sigma\in\mathcal G_k$, that is, $M_k$ is
+exchangeable within strata given everything else. Then the statistic $V_k(D)$ (the sign-consistent $t$ of $M_k$ in the
+reported package, or $-\infty$ if $M_k$ is not reported) yields a valid $p$-value by Theorem~\ref{thm:valid}.
+\end{corollary}
+
+\paragraph{Two moderator nulls.} The permutation null of Corollary~\ref{cor:mod}, $H_{0k}^{\text{perm}}$, says that $M_k$
+carries no information about outcomes within strata. It implies, but is not implied by, the hypothesis the theory states,
+$H_{0k}^{\text{int}}$: the effect of exposure does not vary with $M_k$. Permuting $M_k$ also breaks its own outcome trend and its
+within-stratum correlation with the other moderators (for hierarchy shape, \VcorrPyrRemCell with digitizable work inside sector
+$\times$ exposure-quintile cells). A rejection of $H_{0k}^{\text{perm}}$ can therefore come from structure other than the
+interaction. Firm fixed effects absorb $M_k$'s level, and every moderator model contains $M_k\times\text{Post}$, which
+absorbs its linear post-shock trend in the real data. Neither term reproduces those relations in the permuted worlds.
+Null-model worlds (Section~\ref{sec:worlds}) target $H_{0k}^{\text{int}}$ directly. They keep $M_k$ and all its relations
+fixed and remove only the interaction. They are not exactly exchangeable: their validity is asymptotic, as for the wild
+cluster bootstrap \citep{cameron2008bootstrap}, and requires the restricted model to contain the structure that the loop's
+other specifications can detect. Section~\ref{sec:validity} reports their size and their $p$-values on the real data.
+
+\paragraph{The statistic.} $V_k$ is $-\infty$ in every world in which the loop does not report $M_k$, so
+\[
+p_k=\Pr(\text{the loop reports }M_k\text{ and }V_k\ge v_k)
+\]
+combines selection and strength. Two further statistics, defined
+in every world, separate them (Section~\ref{sec:validity}). $V_k^{\text{free}}$ is the largest sign-consistent
+single-moderator $t$ of $M_k$ over the base specifications with a significant H1, the statistic the loop screens on.
+$V_k^{\text{fix}}$ is the $t$ of $M_k$ in the reported specification with its two partner moderators, with no search. Both were
+added in response to review. They are diagnostics, and no claim rests on them alone.
+
+\paragraph{Familywise error over the ten registered moderators.} The loop reports three of ten candidates, so the family is
+all ten. For an unreported candidate $V_k(D)=-\infty$ and $p_k=1$. Holm's step-down over the ten $p$-values (seven of them
+equal to one) therefore controls the familywise error rate in the strong sense whenever each $p_k$ is valid, under any
+dependence. It multiplies the three reported $p$-values by 10, 9, and 8. Holm over the three reported $p$-values alone carries
+no such guarantee, because those three were selected for being small: the union bound runs over all ten candidates. In the
+joint worlds of Section~\ref{sec:validity}, scored against one another, Holm over the three reported moderators confirms at
+least one in \VFwerHolmThree\% of worlds in which none of the ten matters. Holm over ten does so in \VFwerHolmTen\%. Joint
+worlds, in which all ten moderators are permuted independently within strata in the same world, give the Westfall--Young
+adjustments \citep{westfall1993resampling}. These use the dependence among the ten statistics. Single-step max-$T$ is
+dominated by the candidate with the heaviest null tail. Step-down min-$P$ puts the candidates on a common scale; its strong
+control requires subset pivotality.
+
+\begin{remark}[Potemkin rate]
+For a procedure $P$ that maps data to a binary ``fully significant package'' verdict, its Potemkin rate is
+$\Pr_{\sigma}(P(D^{\sigma})=1)$ over Type~A null worlds. It is the procedure's false-discovery probability for the whole
+package under the conditional null, and it is estimated with Monte Carlo standard error $\sqrt{r(1-r)/B}$.
+\end{remark}
+
+%======================================================================
+\section{The replayable loop and the estimation engine}\label{sec:loop}
+%======================================================================
+
+\textbf{Design space (registered).} There are three outcome proxies, three exposure proxies, three control sets (none;
+eight lagged firm controls; the same plus pre-period size and hiring growth interacted with year), two fixed-effect
+structures (firm and year; firm and NAICS-3 $\times$ year), three sample rules (at least 10 hires; at least 30 hires; firms
+observed at least 8 years), two transformations (none; winsorizing at the 1st and 99th percentiles by year), and two
+clusterings (firm; NAICS-3). That gives \NbaseSpecs base specifications. Inside each, the loop searches the ten registered
+moderators. The full registry is reproduced in Section~\ref{sec:registry}.
+
+\textbf{Policies.}
+\begin{itemize}
+\item \textbf{U} (registered signs) visits base specifications lexicographically and fits H1. If H1 is significant with its
+registered sign, U fits each moderator singly and keeps those significant with their registered sign. It then fits up to
+ten mixed-sign triples, ordered by the sum of single $|t|$, and stops at the first package with all four sign-consistent
+$|t|\ge1.96$.
+\item \textbf{U-free} is identical except that moderator signs are unrestricted. This models an agent that rationalizes the
+signs after seeing them.
+\item \textbf{Other procedures.} Bonferroni divides $\alpha$ by the number of models U visited. The specification-curve
+criterion requires the median H1 $t$ across all base specifications to exceed 1.96. The guard runs U on half of the firms
+(stratified by NAICS-2, registered seed) and re-estimates the selected package once on the other half, with Holm's
+correction across the four hypotheses.
+\end{itemize}
+
+\textbf{Engine.} Fixed effects are removed by the method of alternating projections \citep{gaure2013ols}, vectorized
+across columns with sparse indicator matrices. Controls are partialled out once per (sample, fixed effects,
+transformation, control set) by an orthonormal basis (Frisch--Waugh--Lovell), so each model involves only its one to seven
+focal columns. Cluster-robust variances use the small-sample factor $\frac{G}{G-1}\frac{N-1}{N-K}$, with $K$ counting the
+partialled controls.
+
+\textbf{Validation.} Coefficients and standard errors match \texttt{pyfixest} to $\le 4\times10^{-15}$ on a simulated
+unbalanced panel (\texttt{intermediate/90\_engine\_validation.csv}). The FWL path matches direct regressions on the real
+panel to $\le 6\times10^{-15}$ (\texttt{intermediate/91\_fwl\_validation.csv}). Evaluating both policies in one pass
+reproduces separate runs exactly.
+
+%======================================================================
+\section{Null worlds and planted worlds}\label{sec:worlds}
+%======================================================================
+
+\textbf{Type~A (treatment null).} All three exposure proxies are permuted \emph{jointly} across firms within 2-digit NAICS
+sectors, using world seed $1000003b+17$.
+\begin{itemize}
+\item \textbf{Preserved:} every other variable, the panel structure, missingness, serial dependence, the correlations among
+exposure proxies, and the sector-level mean of exposure. Sector-level co-movement between exposure and outcomes therefore
+remains; the null is conservative about \emph{firm-specific} effects.
+\item \textbf{Destroyed:} only the link between a firm's own exposure and its own outcomes.
+\end{itemize}
+
+\textbf{Type~B (moderator null).} One moderator is permuted within NAICS-2 $\times$ exposure-quintile cells. The treatment
+and the other moderators are held fixed.
+
+\textbf{Constructions added in response to review} (\texttt{scripts/22\_validity\_worlds.py}; seeds follow the registered
+rule with new streams):
+\begin{itemize}
+\item \textbf{Covariate-preserving Type~A.} Within NAICS-2, each exposure proxy is split into its linear projection on twelve
+predetermined traits (the ten moderators, pre-period size, and pre-period hiring growth) and a residual. Only the residual
+is permuted, jointly for the three proxies. Exposure keeps its within-sector correlation with the observed traits. The
+projection explains \VcovARsq\% of the within-sector variance of the main proxy.
+\item \textbf{Joint Type~B.} All ten moderators are permuted independently within NAICS-2 $\times$ exposure-quintile
+cells in the same world, as the registry's Type~B entry describes. This gives the familywise null distribution.
+\item \textbf{Conditional Type~B.} $M_k$ is split into its projection on (NAICS-2, the three exposure proxies,
+exposure$^2$, the other nine moderators) and a residual, and only the residual is permuted within the Type~B cells.
+\item \textbf{Null-model (Freedman--Lane) worlds} for moderator $k$ \citep{freedman1983nonstochastic,winkler2014permutation}.
+For each outcome, the restricted model is fitted on the analysis sample: firm and NAICS-3 $\times$ year effects, the eight C1
+controls, the three exposure proxies $\times$ Post, exposure$^2\times$Post, all ten $M_j\times$Post, and
+$E\times M_j\times$Post for $j\neq k$, everything except the target interaction. Each world adds the fitted values to the
+restricted residuals, with each firm's residuals multiplied by one Rademacher sign shared across outcomes. This keeps
+within-firm serial dependence and heteroskedasticity.
+\end{itemize}
+
+\textbf{Planted worlds.} Starting from a Type~A world, we add $\beta^*\,\text{sd}^{w}_o\,d_o\,E^{\sigma}_i\text{Post}_t$
+to each outcome $o$, where $\text{sd}^w_o$ is the within-firm standard deviation and $d_o$ is the registered direction. We
+also add $\gamma^*$ times the product of that term with each of the three moderators in the real package, in their
+registered directions. The reported effects are then compared with the planted ones.
+
+%======================================================================
+\section{Data, linkage, and measurement audits}\label{sec:data}
+%======================================================================
+
+\subsection{Sources}
+\begin{itemize}
+\item \textbf{Revelio Labs positions} are a yearly active-state panel of r\'esum\'e-based positions (file $Y$ holds positions
+active in $Y$). Hires are positions whose start date falls in $Y$. Seniority is Revelio's seven-level scale.
+\item \textbf{Revelio User Skills} consist of 283 shards (about 850 GB), which we streamed shard by shard.
+\item \textbf{Revelio job postings, 2018--2022}, supply a role-to-occupation crosswalk.
+\item \textbf{Occupational exposure scores} are the public releases of \citet{eloundou2024gpts} and
+\citet{felten2021occupational,felten2023language}.
+\item \textbf{Compustat North America} (quarterly release through 2026Q2) supplies fiscal-year fundamentals through FY2025.
+\item \textbf{I/B/E/S detail} supplies analyst coverage.
+\end{itemize}
+Firms are linked through Revelio's company mapping to Compustat identifiers: \NlinkedFirms linked firms, each gvkey mapped
+to one Revelio entity, with listed subsidiaries assigned before their parents. Revelio headcount correlates
+\CorrHeadcount with Compustat employment (logs), at 0.89--0.90 in every year from 2016 to 2023
+(\texttt{intermediate/07b\_headcount\_validity.csv}).
+
+\input{../tables/tab_flow.tex}
+
+\subsection{Audits that shaped the measures}
+\begin{itemize}
+\item \textbf{Skill taxonomy.} Revelio's canonical skill label is unreliable for generative AI. Only \GitHubValid\% of rows
+labelled ``GitHub Copilot'' carry a GitHub-Copilot string; the rest are plain ``github.'' ``Hugging Face Transformers'' is
+\HFValid\% valid. Machine translation renders ``generative ai'' as ``generative to.'' We therefore match an explicit
+dictionary (51 generative-AI strings, 39 core-AI strings) against the raw string first and the translation second,
+yielding \GenAIrows million generative-AI skill rows.
+\item \textbf{Skill dates.} The first-reported dates of generative-AI skills cluster in 2024--2026 (1,779 in 2023; 1.18
+million in 2024). They mark r\'esum\'e capture, not acquisition, so the ``ever listed'' share (0.7\% already in 2016) is a
+composition measure. We therefore use the dated share as the adoption variable and discuss its timing.
+\item \textbf{Role vocabulary.} Position roles and posting roles share the same 1,500-value vocabulary (1,498 of 1,498
+match), allowing a posting-weighted crosswalk that covers 96\% of role mass for the Eloundou et al.\ scores.
+\end{itemize}
+
+\input{../tables/tab_construct.tex}
+\input{../tables/tab_desc.tex}
+
+%======================================================================
+\section{The testbed: theory, estimates, identification}\label{sec:testbed}
+%======================================================================
+
+\subsection{Hypotheses (registered before estimation)}
+
+\textbf{Hypothesis 1 (H1).} Firms whose pre-shock workforce was more exposed to large language models shift their hiring
+toward experienced workers after the release of ChatGPT.
+
+\emph{Mechanism.} Managers staffing work decide whether a task goes to a new hire, an experienced worker using the model, or
+the model alone. Generative AI lowers the cost of first drafts, code, summaries, and routine analysis, the codified outputs
+through which entry-level hires contribute and learn \citep{march1991exploration,levinthal1993myopia}. It does not replace
+the judgment needed to evaluate and integrate those outputs. The marginal hire therefore moves up the ladder.
+
+\emph{Rival prediction.} Experiments find the largest productivity gains for novices
+\citep{noy2023experimental,brynjolfsson2025generative,dellacqua2026navigating}. That implies firms could substitute
+AI-assisted novices for expensive experienced hires.
+
+The moderators the loop reported are three corollaries of the H1 mechanism, registered with signs before estimation:
+\begin{itemize}
+\item \textbf{Hypothesis 2 (H2): hierarchy shape amplifies.} The more bottom-heavy a firm's hierarchy before the shock, the
+stronger the shift away from entry-level hiring. A pyramid holds more of the codified junior task mass that AI can absorb, because a knowledge hierarchy solves its
+routine problems at the bottom \citep{garicano2000hierarchies}.
+\item \textbf{Hypothesis 3 (H3): digitizable work amplifies.} The more digitizable a firm's work, the stronger the shift.
+Tasks already performed digitally are easier to reassign to AI tools, since technology substitutes for codifiable
+tasks \citep{autor2003skill}.
+\item \textbf{Hypothesis 4 (H4): organizational age attenuates.} The older the organization, the weaker the shift.
+Institutionalized staffing routines and structural inertia slow redesign \citep{hannan1984structural,sorensen2000aging}.
+\end{itemize}
+The registry states the H2 and H3 mechanisms without a citation. The citations above name the theories those mechanisms
+apply (knowledge hierarchies; task-based technological change) and were added in revision on 27 October 2026; no
+hypothesis, direction, measure, or test changed. The other seven registered moderators and their estimates are reported in
+Table~\ref{tab:pool}.
+
+\subsection{Estimates}
+\input{../tables/tab_h1.tex}
+\input{../tables/tab_moderation.tex}
+\input{../tables/tab_iv.tex}
+\input{../tables/tab_pool.tex}
+
+\paragraph{Economic magnitudes.}
+\begin{itemize}
+\item \textbf{H1.} A one-standard-deviation higher exposure raises the experienced-hire share by \HoneB percentage points
+(\HonePct\% of its pre-period mean).
+\item \textbf{Package.} In the package the loop reported, the same difference lowers entry-level hiring by \PkgHoneB hires
+per 100 employees at average moderator values.
+\item \textbf{Moderators.} The reduction is \PyrHi\% of the pre-period mean for firms one standard deviation more
+bottom-heavy than average, against \PyrLo\% one standard deviation less. For digitizable work the contrast is \RemHi\%
+against \RemLo\%. For organizational age it is \AgeHi\% for older firms against \AgeLo\% for younger ones.
+\item \textbf{IV.} Under the exclusion restriction, one percentage point of workforce generative-AI adoption raises the
+experienced-hire share by \IVtiltB points (SE \IVtiltSE).
+\end{itemize}
+
+\subsection{Identification}
+\paragraph{A measurement caveat.} Raw means (Figure~\ref{fig:es}) show the experienced-hire share rising after 2022 in all
+exposure terciles. Part of this common rise likely reflects the lag with which recent hires, disproportionately junior, add
+positions to online profiles. Year fixed effects absorb the common component. A bias in the exposure coefficient would require
+the reporting lag to differ systematically by exposure. The estimate is robust to excluding 2025, the year most affected by
+reporting lags (Table~\ref{tab:ident}), and the break appears already in 2023.
+
+\input{../tables/tab_ident.tex}
+\input{../tables/tab_es.tex}
+\input{../tables/tab_balance.tex}
+
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{../figures/desc_event_time_means.pdf}
+\caption{Raw means by exposure tercile: experienced-hire share (left) and workforce generative-AI adoption (right). The
+dotted line marks the release of ChatGPT.}\label{fig:es}
+\end{figure}
+\begin{figure}[H]\centering
+\includegraphics[width=0.55\linewidth]{../figures/desc_binscatter_change.pdf}
+\caption{Bin scatter (20 bins) of each firm's post-minus-pre change in the experienced-hire share against its pre-shock LLM
+exposure, with the OLS line.}
+\end{figure}
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{../figures/desc_densities.pdf}
+\caption{Kernel densities of pre-shock exposure (left) and of the experienced-hire share before and after the shock (right).}
+\end{figure}
+
+%======================================================================
+\section{Calibration results}\label{sec:calib}
+%======================================================================
+\IfFileExists{../tables/tab_procedures.tex}{\input{../tables/tab_procedures.tex}}{}
+
+\paragraph{Reading the results.}
+\begin{itemize}
+\item \textbf{Null worlds are not quiet.} Across \Bnull Type~A worlds, H1 is nominally significant in \NullShareHoneSig\% of
+the base specifications on average, although exposure has no firm-specific effect by construction. Sector-level co-movement,
+which within-sector permutation preserves, is enough to generate large $t$-statistics under firm and year fixed effects.
+The 95th percentile of the loop's maximum H1 $t$ in null worlds is \NullHoneQ.
+\item \textbf{Potemkin rates.} The unguarded loop reports a full package in \PotemU\% of null worlds. Letting it
+rationalize moderator signs raises this to \PotemFree\%.
+\item \textbf{Search-adjusted inference.} The real data's maximum H1 $t$ (\HoneMaxT) exceeds every null world, and the
+reported package has search-adjusted $p=\pNWCpkg$.
+\end{itemize}
+
+\paragraph{An ex post diagnostic for the moderators.} In Type~B worlds for digitizable work, the loop still selects the
+\emph{permuted} moderator in most worlds. Permuting within sector $\times$ exposure-quintile strata preserves the moderator's
+stratum-level association with exposure, so part of what the loop reads as moderation by digitizable work is heterogeneity of
+the exposure effect across sectors and exposure levels. Consistent with this, adding exposure$^2\times$Post to the reported
+package shrinks the digitizable-work interaction from $t=-4.40$ to $t=-2.95$, while the hierarchy-shape ($t=-5.21$) and
+organizational-age ($t=2.30$) interactions are unchanged (\texttt{tables/expost\_nonlinearity.json}). This diagnostic was run
+after the Type~B results were seen and is labelled accordingly.
+
+\begin{figure}[H]\centering
+\IfFileExists{../figures/fig5_planted.pdf}{\includegraphics[width=\linewidth]{../figures/fig5_planted.pdf}}{}
+\caption{Planted worlds: share of worlds in which each procedure reports the full package (left), and the median ratio of
+the main effect reported by loop U to the planted effect (right). Planted moderators: 0.05 within-firm SD in their
+registered directions.}\label{fig:planted}
+\end{figure}
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{../figures/figA_spec_curve.pdf}
+\caption{Specification curve: sign-consistent H1 $t$-statistics across the \NbaseSpecs registered base specifications, by
+outcome proxy.}
+\end{figure}
+
+%======================================================================
+\section{Monte Carlo evidence on synthetic twins}\label{sec:mc}
+%======================================================================
+\IfFileExists{../tables/tab_mc.tex}{\input{../tables/tab_mc.tex}}{}
+
+\paragraph{What the Monte Carlo shows.}
+\begin{itemize}
+\item \textbf{Size.} Under the null, the loop-level test of the searched main effect rejects in \MCsizeNWC\% of replications,
+consistent with Theorem~1 given Monte Carlo error. The specification-curve rule rejects in \MCsizeSpec\%: sector-level shocks
+correlated with exposure make many specifications nominally significant.
+\item \textbf{Proposal leakage.} Suppose the analyst peeks at the results, prunes the design space to the best-looking
+specification, and only then registers it. The test then rejects in \MCsizeLeak\% of null replications. Replaying the
+pruning inside every null world restores \MCsizeLeakReplay\%. This is the replayability principle in numbers.
+\item \textbf{Confounding.} When an unobserved trait drives both exposure and post-period outcome drift, the test rejects
+in \MCsizeConf\% of replications. Null-World Calibration prices search, not confounding. Section~\ref{sec:validity} maps
+how the rejection rate grows with the strength of such a trait, and what restores size when the trait is observed.
+\item \textbf{Power.} With planted effects, the package test rejects in \MCpowerNWC\% of replications and the main-effect test
+in \MCpowerNWChOne\%.
+\item \textbf{Twin versus real null worlds.} In the twin, the unguarded loop rarely assembles a full package under the null
+(\MCsizeU\%), whereas it does so in \PotemU\% of real-data null worlds. Real organizational data carry moderator-linked
+trends and heterogeneous shocks that a simple generative model omits. This is a reason to calibrate on null worlds built from
+the real data rather than on simulations alone.
+\end{itemize}
+
+The synthetic twin is a generative model fitted to the analysis panel (\texttt{nullworld/synth.py}):
+\begin{itemize}
+\item a Gaussian copula over firm-level exposure, moderators, and pre-period covariates;
+\item sectors drawn conditional on exposure quintile;
+\item coverage patterns borrowed from real firms;
+\item outcomes and controls built from firm effects, year effects, sector-year shocks, and AR(1) within-firm shocks.
+\end{itemize}
+\begin{sloppypar}
+It reproduces means, between- and within-firm standard deviations, and the firm-level correlations among exposure and
+moderators. It understates within-firm serial correlation (\nolinkurl{intermediate/08_twin_fidelity.csv}).
+\end{sloppypar}
+
+%======================================================================
+\section{Validity diagnostics}\label{sec:validity}
+%======================================================================
+This section examines the conditions under which the calibration is valid: who took which decision, what happens
+when exposure is not exchangeable within sector, what the moderator tests and their $p$-values measure (including the
+familywise correction over all ten registered candidates), and what replay costs. The analyses were added after the main
+results were seen (20 October 2026). They are diagnostics: they test whether the calibration's conditions hold and what its
+$p$-values measure, and no claim is upgraded on their strength alone. Scripts: \texttt{scripts/22}--\texttt{27}; all numbers
+in \texttt{tables/validity.json} and \texttt{tables/benchmark.json}.
+
+\subsection{Who decided what}
+\input{../tables/tab_v_ledger.tex}
+The AI agent's decisions in the prototype were taken before outcomes were computed, and they are frozen in the registry
+or the code. All run-time choices are code and are replayed. Policies U and U-free are benchmarks that bracket an agent's
+search; they are not models of agent behaviour. Figure~\ref{fig:budget} shows how their Potemkin rates grow with the number
+of models a loop may fit before reporting.
+\begin{figure}[H]\centering
+\includegraphics[width=0.6\linewidth]{../figures/fig10_budget.pdf}
+\caption{Share of the \Bnull Type~A null worlds in which each policy has reported a fully significant package within a given
+number of models (search budget). Markers: where each policy stopped on the real data.}\label{fig:budget}
+\end{figure}
+
+\subsection{When exposure is not exchangeable within sector}
+Within NAICS-2 sectors, exposure is correlated with several firm traits: \VcorrExpRem with digitizable work, \VcorrExpPyr with
+hierarchy shape, \VcorrExpAI with pre-period AI talent, and \VcorrExpGrowth with pre-period hiring growth. Type~A worlds break these links.
+Table~\ref{tab:v_exch} and Figure~\ref{fig:exch} measure the consequence on synthetic twins with no exposure effect. A trait
+$u$ with within-sector correlation $\rho$ with exposure shifts outcomes either in levels or after the shock.
+\begin{itemize}
+\item \textbf{Level-only traits are harmless.} Firm effects absorb them (\VExLevel\% rejections; \VExNull\% with no trait).
+\item \textbf{Post-shock traits are confounders.} Rejections rise quickly with the spurious effect they induce:
+\VExNWCTwoFive\% when it is \VExSpurTwoFive\% of the real H1 estimate, \VExNWCFourFive\% at \VExSpurFourFive\%, and
+\VExNWCSixTen\% at \VExSpurSixTen\%. A correctly sized test of an association detects a confounded association as readily as a
+real one: calibration prices search, not confounding. Nominal tests give no protection either. One pre-specified regression
+already rejects in \VExSingleNull\% of null twins, because sector shocks correlated with exposure fool its reference
+distribution, and it rises with confounding too.
+\item \textbf{Observed traits have a remedy.} Strata on the trait's quintile help only partly (up to \VExStratMax\%). Worlds
+that preserve exposure's projection on the trait hold size in all \VExNcells settings (at most \VExCovMax\%).
+\end{itemize}
+On the real data (Table~\ref{tab:v_covA}), worlds that preserve exposure's within-sector projection on twelve predetermined
+traits give $p\le\VcovAph$ for H1 and $p=\VcovApkg$ for the package. The unguarded loop's Potemkin rate rises to
+\VcovAPotU\%: exposure-correlated traits give a searching loop more ways to assemble a package.
+\input{../tables/tab_v_exch.tex}
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{../figures/fig7_exchangeability.pdf}
+\caption{Synthetic twins with no exposure effect and a trait correlated with exposure within sector. (a)~Rejection rates
+against the spurious effect the trait induces (as a share of the real H1 estimate). (b)~The null, a level-only trait, and two
+post-shock cells under four procedures.}\label{fig:exch}
+\end{figure}
+\input{../tables/tab_v_covA.tex}
+
+\subsection{Moderator nulls and what the moderator \texorpdfstring{$p$}{p} measures}
+Table~\ref{tab:v_modmc} and Figure~\ref{fig:mod} report the size of three moderator-world constructions when the target's
+true interaction is zero. The target is given its own post-shock trend, a correlated moderator with a true interaction, and a
+concave exposure effect, all with adversarial signs. The moderator's own trend is harmless (\VMmPermFixTrend\% rejections
+under permutation), because every moderator model contains $M_k\times$Post. A correlated moderator with a real interaction
+and a concave exposure effect are not: permutation rejects a zero interaction in \VMmPermFixProxy\% and \VMmPermFixNonlin\%
+of samples, and in \VMmPermFixAll\% with all three structures. Conditional permutation holds size in every scenario
+(\VMmResFixAll\% with all three). Null-model worlds are valid but conservative (\VMmFLFixAll\%); their $p$-values cluster near
+0.5. Table~\ref{tab:v_modreal} and Figure~\ref{fig:sel} give the real-data
+$p$-values by construction and statistic, with the familywise corrections over the ten registered candidates. With all ten
+moderators permuted, the loop still reports a fully significant package in \VJointSuccess\% of the \VBjoint joint worlds. Much
+of what a loop reads as moderation in these data is the heterogeneity of a strong main effect.
+\input{../tables/tab_v_modmc.tex}
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{../figures/fig8_moderator_worlds.pdf}
+\caption{Moderator tests when the true interaction is zero: Monte Carlo rejection rates by construction (a,\,b), and the
+real-data $p$-values of H2--H4 under the three constructions (c).}\label{fig:mod}
+\end{figure}
+\input{../tables/tab_v_modreal.tex}
+\begin{figure}[H]\centering
+\includegraphics[width=\linewidth]{../figures/fig9_selection.pdf}
+\caption{What the moderator $p$-value measures: the share of permuted worlds in which the loop reports the permuted
+moderator (a), and the $p$-values of the three statistics with the familywise adjustments over ten candidates (b).}\label{fig:sel}
+\end{figure}
+
+\subsection{What replay costs}
+One full replay of the registered loop (both policies, the whole design space, about \VFitsWorld model fits) takes
+\VSecWorld seconds with the \texttt{nullworld} engine on the real panel. Refitting the same models with \texttt{pyfixest}
+takes about \VPyfixestModel seconds each, or \VPyfixestWorld seconds per world, roughly \VSpeedup times longer. At
+\Bnull worlds, that is the difference between under an hour and several days (\texttt{scripts/27\_benchmark.py}).
+
+%======================================================================
+\section{The registry}\label{sec:registry}
+%======================================================================
+\begin{sloppypar}
+The registry below was frozen and hashed (SHA-256 prefix \texttt{\RegistryHash}, \RegistryTime) before any outcome was
+computed. Deviations after freezing are listed in the design log (\nolinkurl{intermediate/00_design_decisions.md}):
+\end{sloppypar}
+\begin{itemize}
+\item the handling of missing moderators, decided before outcomes were seen;
+\item the adoption variable, decided before any IV estimate;
+\item three ex post identification checks;
+\item a reduced planted-world design, for compute reasons.
+\end{itemize}
+The listing omits the file's four-line \texttt{authoring} note (lines 11--14); the hash refers to the complete file in
+the repository.
+\lstinputlisting[linerange={1-10,15-99999}]{../registry/design_space.yaml}
+
+%======================================================================
+\section{Repository and reproduction}\label{sec:repo}
+%======================================================================
+The research artifact submitted with this appendix is the public repository \url{https://github.com/LLMPlus-ai/potemkin-findings}. Its numbered scripts write every number,
+table, and figure, and each records its inputs and outputs in its header.
+\begingroup\raggedright
+\begin{itemize}
+\item \texttt{registry/} holds the frozen design space and its SHA-256 hash; every run of the loop verifies the hash first.
+\item \texttt{nullworld/} is the reusable package: fixed-effects engine, replayable loop, world generators, randomization
+inference, synthetic twin, and registry grammar (Section~\ref{sec:loop}).
+\item \texttt{scripts/01}--\texttt{07} build the data from the licensed sources (DuckDB, memory capped at 4~GB);
+\texttt{scripts/08} fits and releases the synthetic twin.
+\item \texttt{scripts/09}--\texttt{14} estimate the testbed, run the loop on the real data, generate the null, guard, and
+planted worlds, run the Monte Carlo study, and aggregate Potemkin rates and search-adjusted $p$-values.
+\item \texttt{scripts/22}--\texttt{27} produce the validity diagnostics of Section~\ref{sec:validity} and the cost benchmark.
+\item \texttt{scripts/12}, \texttt{15}, \texttt{16}, \texttt{19}--\texttt{21}, and \texttt{26} write the figures and
+tables; \texttt{scripts/17} and \texttt{25} write every number cited in the text as a macro.
+\item \texttt{scripts/18} verifies every reference against Crossref (\texttt{literature/citation\_audit.csv});
+\texttt{scripts/28} recomputes the cited validity numbers independently from the stored worlds;
+\texttt{scripts/90}--\texttt{92} validate the engine against \texttt{pyfixest}.
+\item \texttt{intermediate/} stores the output of every world (Type~A, Type~B, joint, trait-preserving, conditional,
+rebuilt-outcome, guard, and planted) and every Monte Carlo replication.
+\end{itemize}
+\endgroup
+\paragraph{Without licensed data.} The Revelio, Compustat, and I/B/E/S extracts cannot be redistributed and are not in
+the repository. With \texttt{NULLWORLD\_DATA=synthetic}, the loop and all null worlds (\texttt{scripts/10}--\texttt{11})
+run on the synthetic twin in \texttt{synthetic/}. The Monte Carlo studies (\texttt{scripts/13}, \texttt{23},
+\texttt{24}) simulate their own twins, and the figure and table scripts read only the stored outputs. The scripts that
+read the licensed data directly (01--09, 12, 14, 22, 25, 27; script 08 to fit the twin) document every field they use, so
+licensees can regenerate every number.
+
+\input{references_technical_appendix.tex}
+\end{document}

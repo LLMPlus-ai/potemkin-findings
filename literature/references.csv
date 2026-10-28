@@ -1,0 +1,65 @@
+key|authors|year|title|venue|volume|issue|pages|doi|type|note
+gartenberg2026more|Gartenberg C, Hasan S, Murray A, Pierce L|2026|More versus better: Artificial intelligence, incentives, and the emerging crisis in peer review|Organ. Sci.|37|3|795--812|10.1287/orsc.2026.ed.v37.n3|article|
+kusumegi2025scientific|Kusumegi K, Yang X, Ginsparg P, de Vaan M, Stuart T, Yin Y|2025|Scientific production in the era of large language models|Science|390|6779|1240--1243||article|
+lu2024ai|Lu C, Lu C, Lange RT, Foerster J, Clune J, Ha D|2024|The AI Scientist: Towards fully automated open-ended scientific discovery|Preprint, arXiv:2408.06292|||||preprint|https://arxiv.org/abs/2408.06292
+manning2024automated|Manning BS, Zhu K, Horton JJ|2024|Automated social science: Language models as scientist and subjects|NBER Working Paper No. 32381, National Bureau of Economic Research, Cambridge, MA|||||wp|https://www.nber.org/papers/w32381
+simmons2011false|Simmons JP, Nelson LD, Simonsohn U|2011|False-positive psychology: Undisclosed flexibility in data collection and analysis allows presenting anything as significant|Psych. Sci.|22|11|1359--1366|10.1177/0956797611417632|article|
+gelman2014statistical|Gelman A, Loken E|2014|The statistical crisis in science|Amer. Scientist|102|6|460--465|10.1511/2014.111.460|article|
+bettis2012search|Bettis RA|2012|The search for asterisks: Compromised statistical tests and flawed theories|Strategic Management J.|33|1|108--113|10.1002/smj.975|article|
+goldfarb2016scientific|Goldfarb B, King AA|2016|Scientific apophenia in strategic management research: Significance tests and mistaken inference|Strategic Management J.|37|1|167--176|10.1002/smj.2459|article|
+steegen2016increasing|Steegen S, Tuerlinckx F, Gelman A, Vanpaemel W|2016|Increasing transparency through a multiverse analysis|Perspect. Psych. Sci.|11|5|702--712|10.1177/1745691616658637|article|
+simonsohn2020specification|Simonsohn U, Simmons JP, Nelson LD|2020|Specification curve analysis|Nature Human Behav.|4|11|1208--1214|10.1038/s41562-020-0912-z|article|
+silberzahn2018many|Silberzahn R, Uhlmann EL, Martin DP, et al.|2018|Many analysts, one data set: Making transparent how variations in analytic choices affect results|Adv. Methods Practices Psych. Sci.|1|3|337--356|10.1177/2515245917747646|article|
+breznau2022observing|Breznau N, Rinke EM, Wuttke A, et al.|2022|Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty|Proc. Natl. Acad. Sci. USA|119|44|e2203150119|10.1073/pnas.2203150119|article|
+menkveld2024nonstandard|Menkveld AJ, Dreber A, Holzmeister F, et al.|2024|Nonstandard errors|J. Finance|79|3|2339--2390|10.1111/jofi.13337|article|
+fisher1935design|Fisher RA|1935|The Design of Experiments|Oliver and Boyd, Edinburgh|||||book|
+white2000reality|White H|2000|A reality check for data snooping|Econometrica|68|5|1097--1126|10.1111/1468-0262.00152|article|
+romano2005stepwise|Romano JP, Wolf M|2005|Stepwise multiple testing as formalized data snooping|Econometrica|73|4|1237--1282|10.1111/j.1468-0262.2005.00615.x|article|
+young2019channeling|Young A|2019|Channeling Fisher: Randomization tests and the statistical insignificance of seemingly significant experimental results|Quart. J. Econom.|134|2|557--598|10.1093/qje/qjy029|article|
+candes2018panning|Cand\`es E, Fan Y, Janson L, Lv J|2018|Panning for gold: `Model-X' knockoffs for high dimensional controlled variable selection|J. Roy. Statist. Soc. Ser. B|80|3|551--577|10.1111/rssb.12265|article|
+noy2023experimental|Noy S, Zhang W|2023|Experimental evidence on the productivity effects of generative artificial intelligence|Science|381|6654|187--192|10.1126/science.adh2586|article|
+brynjolfsson2025generative|Brynjolfsson E, Li D, Raymond L|2025|Generative AI at work|Quart. J. Econom.|140|2|889--942|10.1093/qje/qjae044|article|
+dellacqua2026navigating|Dell'Acqua F, McFowland E III, Mollick E, Lifshitz H, Kellogg KC, Rajendran S, Krayer L, Candelon F, Lakhani KR|2026|Navigating the jagged technological frontier: Field experimental evidence of the effects of artificial intelligence on knowledge worker productivity and quality|Organ. Sci.|37|2|403--423|10.1287/orsc.2025.21838|article|
+march1991exploration|March JG|1991|Exploration and exploitation in organizational learning|Organ. Sci.|2|1|71--87|10.1287/orsc.2.1.71|article|
+levinthal1993myopia|Levinthal DA, March JG|1993|The myopia of learning|Strategic Management J.|14|S2|95--112|10.1002/smj.4250141009|article|
+doeringer1971internal|Doeringer PB, Piore MJ|1971|Internal Labor Markets and Manpower Analysis|Heath, Lexington, MA|||||book|
+brynjolfsson2025canaries|Brynjolfsson E, Chandar B, Chen R|2025|Canaries in the coal mine? Six facts about the recent employment effects of artificial intelligence|Working paper, Stanford Digital Economy Lab, Stanford, CA|||||wp|https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/
+lichtinger2025generative|Hosseini Maasoum SM, Lichtinger G|2025|Generative AI as seniority-biased technological change: Evidence from U.S. r\'esum\'e and job posting data|Working paper, SSRN||||10.2139/ssrn.5425555|wp|https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5425555
+eloundou2024gpts|Eloundou T, Manning S, Mishkin P, Rock D|2024|GPTs are GPTs: Labor market impact potential of LLMs|Science|384|6702|1306--1308|10.1126/science.adj0998|article|
+borusyak2022quasi|Borusyak K, Hull P, Jaravel X|2022|Quasi-experimental shift-share research designs|Rev. Econom. Stud.|89|1|181--213|10.1093/restud/rdab030|article|
+rambachan2023more|Rambachan A, Roth J|2023|A more credible approach to parallel trends|Rev. Econom. Stud.|90|5|2555--2591|10.1093/restud/rdad018|article|
+nosek2018preregistration|Nosek BA, Ebersole CR, DeHaven AC, Mellor DT|2018|The preregistration revolution|Proc. Natl. Acad. Sci. USA|115|11|2600--2606|10.1073/pnas.1708274114|article|
+daft1990can|Daft RL, Lewin AY|1990|Can organization studies begin to break out of the normal science straitjacket? An editorial essay|Organ. Sci.|1|1|1--9|10.1287/orsc.1.1.1|article|
+goldsmithpinkham2020bartik|Goldsmith-Pinkham P, Sorkin I, Swift H|2020|Bartik instruments: What, when, why, and how|Amer. Econom. Rev.|110|8|2586--2624|10.1257/aer.20181047|article|
+felten2021occupational|Felten E, Raj M, Seamans R|2021|Occupational, industry, and geographic exposure to artificial intelligence: A novel dataset and its potential uses|Strategic Management J.|42|12|2195--2217|10.1002/smj.3286|article|
+felten2023language|Felten E, Raj M, Seamans R|2023|How will language modelers like ChatGPT affect occupations and industries?|Preprint, arXiv:2303.01157|||||preprint|https://arxiv.org/abs/2303.01157
+bidwell2014within|Bidwell M, Keller JR|2014|Within or without? How firms combine internal and external labor markets to fill jobs|Acad. Management J.|57|4|1035--1055|10.5465/amj.2012.0119|article|
+hannan1984structural|Hannan MT, Freeman J|1984|Structural inertia and organizational change|Amer. Sociol. Rev.|49|2|149--164|10.2307/2095567|article|
+sorensen2000aging|S{\o}rensen JB, Stuart TE|2000|Aging, obsolescence, and organizational innovation|Admin. Sci. Quart.|45|1|81--112|10.2307/2666980|article|
+cohen1990absorptive|Cohen WM, Levinthal DA|1990|Absorptive capacity: A new perspective on learning and innovation|Admin. Sci. Quart.|35|1|128--152|10.2307/2393553|article|
+cyert1963behavioral|Cyert RM, March JG|1963|A Behavioral Theory of the Firm|Prentice-Hall, Englewood Cliffs, NJ|||||book|
+bourgeois1981measurement|Bourgeois LJ|1981|On the measurement of organizational slack|Acad. Management Rev.|6|1|29--39|10.5465/amr.1981.4287985|article|
+graham2005economic|Graham JR, Harvey CR, Rajgopal S|2005|The economic implications of corporate financial reporting|J. Accounting Econom.|40|1--3|3--73|10.1016/j.jacceco.2005.01.002|article|
+he2013analysts|He JJ, Tian X|2013|The dark side of analyst coverage: The case of innovation|J. Financial Econom.|109|3|856--878|10.1016/j.jfineco.2013.04.001|article|
+kogut1992knowledge|Kogut B, Zander U|1992|Knowledge of the firm, combinative capabilities, and the replication of technology|Organ. Sci.|3|3|383--397|10.1287/orsc.3.3.383|article|
+westfall1993resampling|Westfall PH, Young SS|1993|Resampling-Based Multiple Testing: Examples and Methods for p-Value Adjustment|Wiley, New York|||||book|
+autor2024applying|Autor D|2024|Applying AI to rebuild middle class jobs|NBER Working Paper No. 32140, National Bureau of Economic Research, Cambridge, MA|||||wp|https://www.nber.org/papers/w32140
+girotra2010idea|Girotra K, Terwiesch C, Ulrich KT|2010|Idea generation and the quality of the best idea|Management Sci.|56|4|591--605|10.1287/mnsc.1090.1144|article|
+ludwig2024machine|Ludwig J, Mullainathan S|2024|Machine learning as a tool for hypothesis generation|Quart. J. Econom.|139|2|751--827|10.1093/qje/qjad055|article|
+harvey2016cross|Harvey CR, Liu Y, Zhu H|2016|... and the cross-section of expected returns|Rev. Financial Stud.|29|1|5--68|10.1093/rfs/hhv059|article|
+gaure2013ols|Gaure S|2013|OLS with multiple high dimensional category variables|Comput. Statist. Data Anal.|66||8--18|10.1016/j.csda.2013.03.024|article|
+nohria1996slack|Nohria N, Gulati R|1996|Is slack good or bad for innovation?|Acad. Management J.|39|5|1245--1264|10.2307/256998|article|
+roth2023whats|Roth J, Sant'Anna PHC, Bilinski A, Poe J|2023|What's trending in difference-in-differences? A synthesis of the recent econometrics literature|J. Econometrics|235|2|2218--2244|10.1016/j.jeconom.2023.03.008|article|
+messeri2024artificial|Messeri L, Crockett MJ|2024|Artificial intelligence and illusions of understanding in scientific research|Nature|627|8002|49--58|10.1038/s41586-024-07146-0|article|
+bail2024can|Bail CA|2024|Can generative AI improve social science?|Proc. Natl. Acad. Sci. USA|121|21|e2314021121|10.1073/pnas.2314021121|article|
+sutton1995what|Sutton RI, Staw BM|1995|What theory is not|Admin. Sci. Quart.|40|3|371--384|10.2307/2393788|article|
+dimaggio1995comments|DiMaggio PJ|1995|Comments on ``What theory is not''|Admin. Sci. Quart.|40|3|391--397|10.2307/2393790|article|
+babina2024artificial|Babina T, Fedyk A, He A, Hodson J|2024|Artificial intelligence, firm growth, and product innovation|J. Financial Econom.|151||103745|10.1016/j.jfineco.2023.103745|article|
+freedman1983nonstochastic|Freedman D, Lane D|1983|A nonstochastic interpretation of reported significance levels|J. Bus. Econom. Statist.|1|4|292--298|10.1080/07350015.1983.10509354|article|
+hemerik2018exact|Hemerik J, Goeman J|2018|Exact testing with random permutations|TEST|27|4|811--825|10.1007/s11749-017-0571-1|article|
+lehmann2022testing|Lehmann EL, Romano JP|2022|Testing Statistical Hypotheses, 4th ed.|Springer, Cham|||||book|
+cameron2008bootstrap|Cameron AC, Gelbach JB, Miller DL|2008|Bootstrap-based improvements for inference with clustered errors|Rev. Econom. Statist.|90|3|414--427|10.1162/rest.90.3.414|article|
+hansen2005test|Hansen PR|2005|A test for superior predictive ability|J. Bus. Econom. Statist.|23|4|365--380|10.1198/073500105000000063|article|
+winkler2014permutation|Winkler AM, Ridgway GR, Webster MA, Smith SM, Nichols TE|2014|Permutation inference for the general linear model|NeuroImage|92||381--397|10.1016/j.neuroimage.2014.01.060|article|
+autor2003skill|Autor DH, Levy F, Murnane RJ|2003|The skill content of recent technological change: An empirical exploration|Quart. J. Econom.|118|4|1279--1333|10.1162/003355303322552801|article|
+garicano2000hierarchies|Garicano L|2000|Hierarchies and the organization of knowledge in production|J. Political Econom.|108|5|874--904|10.1086/317671|article|

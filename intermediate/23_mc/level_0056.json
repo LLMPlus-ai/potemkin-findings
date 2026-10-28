@@ -1,0 +1,1 @@
+{"cell": "level", "channel": "level", "rho": 0.6, "delta": 1.0, "r": 56, "B": 99, "h1": 1.2874234652558723, "t_single": 0.545155965543263, "b_single_sdw": 0.006806882760943361, "p": {"NWC": 0.1, "NWC_strat": 0.03, "NWC_cov": 0.01}, "reject": {"single": false, "naive": false, "bonf": false, "NWC": false, "NWC_strat": true, "NWC_cov": true}}

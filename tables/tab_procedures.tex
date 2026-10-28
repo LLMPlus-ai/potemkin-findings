@@ -1,0 +1,22 @@
+\begin{table}[!htbp]\centering\footnotesize
+\caption{Potemkin rates and search-adjusted inference}\label{tab:procedures}
+\begin{tabular}{lrr}
+\toprule
+Procedure & Rate / $p$ & Interval / adjusted \\
+\midrule
+U (registered signs) & 26.5 & [23.8, 29.2] \\
+U-free (signs rationalized) & 93.4 & [91.9, 94.9] \\
+Bonferroni over models visited & 0.0 & [0.0, 0.0] \\
+Specification curve (median t >= 1.96) & 3.3 & [2.2, 4.4] \\
+NWC (loop-level p <= .05) & 5.0 & [3.6, 6.4] \\
+Guard: split sample, one confirmation, Holm & 0.6 & [0.0, 1.3] \\
+\midrule \multicolumn{3}{l}{\textit{Search-adjusted $p$-values for the real report}} \\
+H1 (maximum $t$ over the search) & 0.001 &  \\
+Package reported by loop U & 0.056 &  \\
+Moderator Organizational age (log) (Type B, B=500) & 0.313 & Holm over ten: 1.000 \\
+Moderator Digitizable work (Type B, B=500) & 0.046 & Holm over ten: 0.413 \\
+Moderator Hierarchy shape (log ratio) (Type B, B=500) & 0.002 & Holm over ten: 0.020 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.95\linewidth}\vspace{2pt}\scriptsize\textit{Notes.} Top panel: share (\%) of 1,000 Type A null worlds (LLM exposure permuted across firms within 2-digit NAICS sectors) in which the procedure reports H1 and three moderators all significant at the 5\% level with mixed signs; 95\% Monte Carlo intervals. Bottom panel: rank of the real statistic among the null-world statistics produced by the same loop (Theorem 1). Holm over ten: step-down adjustment over all ten registered moderators, the seven the loop did not report counted as $p=1$ (Table~\ref{tab:v_modreal}).\end{minipage}
+\end{table}

@@ -1,0 +1,65 @@
+key,doi,status,crossref_title,crossref_year,crossref_volume,crossref_page,title_overlap,found_doi,verified_on
+gartenberg2026more,10.1287/orsc.2026.ed.v37.n3,VERIFIED,"More Versus Better: Artificial Intelligence, Incentives, and the Emerging Crisis in Peer Review",2026.0,37.0,795-812,1.0,,2026-10-21
+kusumegi2025scientific,,VERIFIED,Scientific production in the era of large language models,2025.0,390.0,1240-1243,1.0,10.1126/science.adw3000,2026-09-29
+lu2024ai,,URL_OK(200),,,,,,,2026-10-21
+manning2024automated,,URL_OK(200),,,,,,,2026-10-21
+simmons2011false,10.1177/0956797611417632,VERIFIED,False-Positive Psychology,2011.0,22.0,1359-1366,1.0,,2026-10-21
+gelman2014statistical,10.1511/2014.111.460,VERIFIED,The Statistical Crisis in Science,2014.0,102.0,460,1.0,,2026-10-21
+bettis2012search,10.1002/smj.975,VERIFIED,The search for asterisks: Compromised statistical tests and flawed theories,2011.0,33.0,108-113,1.0,,2026-10-21
+goldfarb2016scientific,10.1002/smj.2459,VERIFIED,Scientific apophenia in strategic management research: Significance tests &amp; mistaken inference,2015.0,37.0,167-176,0.91,,2026-10-21
+steegen2016increasing,10.1177/1745691616658637,VERIFIED,Increasing Transparency Through a Multiverse Analysis,2016.0,11.0,702-712,1.0,,2026-10-21
+simonsohn2020specification,10.1038/s41562-020-0912-z,VERIFIED,Specification curve analysis,2020.0,4.0,1208-1214,1.0,,2026-10-21
+silberzahn2018many,10.1177/2515245917747646,VERIFIED,"Many Analysts, One Data Set: Making Transparent How Variations in Analytic Choices Affect Results",2018.0,1.0,337-356,1.0,,2026-10-21
+breznau2022observing,10.1073/pnas.2203150119,VERIFIED,Observing many researchers using the same data and hypothesis reveals a hidden universe of uncertainty,2022.0,119.0,e2203150119,1.0,,2026-10-21
+menkveld2024nonstandard,10.1111/jofi.13337,VERIFIED,Nonstandard Errors,2024.0,79.0,2339-2390,1.0,,2026-10-21
+fisher1935design,,BOOK(manual),,,,,,,2026-10-21
+white2000reality,10.1111/1468-0262.00152,VERIFIED,A Reality Check for Data Snooping,2000.0,68.0,1097-1126,1.0,,2026-10-21
+romano2005stepwise,10.1111/j.1468-0262.2005.00615.x,VERIFIED,Stepwise Multiple Testing as Formalized Data Snooping,2005.0,73.0,1237-1282,1.0,,2026-10-21
+young2019channeling,10.1093/qje/qjy029,VERIFIED,Channeling Fisher: Randomization Tests and the Statistical Insignificance of Seemingly Significant Experimental Results*,2018.0,134.0,557-598,1.0,,2026-10-21
+candes2018panning,10.1111/rssb.12265,VERIFIED,Panning for Gold: ‘Model-X’ Knockoffs for High Dimensional Controlled Variable Selection,2018.0,80.0,551-577,1.0,,2026-10-21
+noy2023experimental,10.1126/science.adh2586,VERIFIED,Experimental evidence on the productivity effects of generative artificial intelligence,2023.0,381.0,187-192,1.0,,2026-10-21
+brynjolfsson2025generative,10.1093/qje/qjae044,VERIFIED,Generative AI at Work,2025.0,140.0,889-942,1.0,,2026-10-21
+dellacqua2026navigating,10.1287/orsc.2025.21838,VERIFIED,Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality,2026.0,37.0,403-423,1.0,,2026-10-21
+march1991exploration,10.1287/orsc.2.1.71,VERIFIED,Exploration and Exploitation in Organizational Learning,1991.0,2.0,71-87,1.0,,2026-10-21
+levinthal1993myopia,10.1002/smj.4250141009,VERIFIED,The myopia of learning,1993.0,14.0,95-112,1.0,,2026-10-21
+doeringer1971internal,,BOOK(manual),,,,,,,2026-10-21
+brynjolfsson2025canaries,,URL_OK(200),,,,,,,2026-10-21
+lichtinger2025generative,10.2139/ssrn.5425555,"VERIFIED(web search: SSRN abstract 5425555, authors Hosseini Maasoum & Lichtinger, posted 2025-08-31)",,,,,,,2026-09-29
+eloundou2024gpts,10.1126/science.adj0998,VERIFIED,GPTs are GPTs: Labor market impact potential of LLMs,2024.0,384.0,1306-1308,1.0,,2026-10-21
+borusyak2022quasi,10.1093/restud/rdab030,VERIFIED,Quasi-Experimental Shift-Share Research Designs,2021.0,89.0,181-213,1.0,,2026-10-21
+rambachan2023more,10.1093/restud/rdad018,VERIFIED,A More Credible Approach to Parallel Trends,2023.0,90.0,2555-2591,1.0,,2026-10-21
+nosek2018preregistration,10.1073/pnas.1708274114,VERIFIED,The preregistration revolution,2018.0,115.0,2600-2606,1.0,,2026-10-21
+daft1990can,10.1287/orsc.1.1.1,VERIFIED,Can Organization Studies Begin to Break Out of the Normal Science Straitjacket? An Editorial Essay,1990.0,1.0,1-9,1.0,,2026-10-21
+goldsmithpinkham2020bartik,10.1257/aer.20181047,VERIFIED,"Bartik Instruments: What, When, Why, and How",2020.0,110.0,2586-2624,1.0,,2026-10-21
+felten2021occupational,10.1002/smj.3286,VERIFIED,"Occupational, industry, and geographic exposure to artificial intelligence: A novel dataset and its potential uses",2021.0,42.0,2195-2217,1.0,,2026-10-21
+felten2023language,,URL_OK(200),,,,,,,2026-10-21
+bidwell2014within,10.5465/amj.2012.0119,VERIFIED,Within or Without? How Firms Combine Internal and External Labor Markets to Fill Jobs,2014.0,57.0,1035-1055,1.0,,2026-10-21
+hannan1984structural,10.2307/2095567,VERIFIED,Structural Inertia and Organizational Change,1984.0,49.0,149,1.0,,2026-10-21
+sorensen2000aging,10.2307/2666980,VERIFIED,"Aging, Obsolescence, and Organizational Innovation",2000.0,45.0,81-112,1.0,,2026-10-21
+cohen1990absorptive,10.2307/2393553,VERIFIED,Absorptive Capacity: A New Perspective on Learning and Innovation,1990.0,35.0,128,1.0,,2026-10-21
+cyert1963behavioral,,BOOK(manual),,,,,,,2026-10-21
+bourgeois1981measurement,10.5465/amr.1981.4287985,VERIFIED,On the Measurement of Organizational Slack,1981.0,6.0,29,1.0,,2026-10-21
+graham2005economic,10.1016/j.jacceco.2005.01.002,VERIFIED,The economic implications of corporate financial reporting,2005.0,40.0,3-73,1.0,,2026-10-21
+he2013analysts,10.1016/j.jfineco.2013.04.001,VERIFIED,The dark side of analyst coverage: The case of innovation,2013.0,109.0,856-878,1.0,,2026-10-21
+kogut1992knowledge,10.1287/orsc.3.3.383,VERIFIED,"Knowledge of the Firm, Combinative Capabilities, and the Replication of Technology",1992.0,3.0,383-397,1.0,,2026-10-21
+westfall1993resampling,,BOOK(manual),,,,,,,2026-10-21
+autor2024applying,,URL_OK(200),,,,,,,2026-10-21
+girotra2010idea,10.1287/mnsc.1090.1144,VERIFIED,Idea Generation and the Quality of the Best Idea,2010.0,56.0,591-605,1.0,,2026-10-21
+ludwig2024machine,10.1093/qje/qjad055,VERIFIED,Machine Learning as a Tool for Hypothesis Generation,2024.0,139.0,751-827,1.0,,2026-10-21
+harvey2016cross,10.1093/rfs/hhv059,VERIFIED,… and the Cross-Section of Expected Returns,2015.0,29.0,5-68,1.0,,2026-10-21
+gaure2013ols,10.1016/j.csda.2013.03.024,VERIFIED,OLS with multiple high dimensional category variables,2013.0,66.0,8-18,1.0,,2026-10-21
+nohria1996slack,10.2307/256998,VERIFIED,IS SLACK GOOD OR BAD FOR INNOVATION?,1996.0,39.0,1245-1264,1.0,,2026-10-21
+roth2023whats,10.1016/j.jeconom.2023.03.008,VERIFIED,What’s trending in difference-in-differences? A synthesis of the recent econometrics literature,2023.0,235.0,2218-2244,0.92,,2026-10-21
+messeri2024artificial,10.1038/s41586-024-07146-0,VERIFIED,Artificial intelligence and illusions of understanding in scientific research,2024.0,627.0,49-58,1.0,,2026-10-21
+bail2024can,10.1073/pnas.2314021121,VERIFIED,Can Generative AI improve social science?,2024.0,121.0,e2314021121,1.0,,2026-10-21
+sutton1995what,10.2307/2393788,VERIFIED,What Theory is Not,1995.0,40.0,371,1.0,,2026-10-21
+dimaggio1995comments,10.2307/2393790,VERIFIED,"Comments on ""What Theory is Not""",1995.0,40.0,391,1.0,,2026-10-21
+babina2024artificial,10.1016/j.jfineco.2023.103745,VERIFIED,"Artificial intelligence, firm growth, and product innovation",2024.0,151.0,103745,1.0,,2026-10-21
+freedman1983nonstochastic,10.1080/07350015.1983.10509354,VERIFIED,A Nonstochastic Interpretation of Reported Significance Levels,1983.0,1.0,292-298,1.0,,2026-10-21
+hemerik2018exact,10.1007/s11749-017-0571-1,VERIFIED,Exact testing with random permutations,2017.0,27.0,811-825,1.0,,2026-10-21
+lehmann2022testing,,BOOK(manual),,,,,,,2026-10-21
+cameron2008bootstrap,10.1162/rest.90.3.414,VERIFIED,Bootstrap-Based Improvements for Inference with Clustered Errors,2008.0,90.0,414-427,1.0,,2026-10-21
+hansen2005test,10.1198/073500105000000063,VERIFIED,A Test for Superior Predictive Ability,2005.0,23.0,365-380,1.0,,2026-10-21
+winkler2014permutation,10.1016/j.neuroimage.2014.01.060,VERIFIED,Permutation inference for the general linear model,2014.0,92.0,381-397,1.0,,2026-10-21
+autor2003skill,10.1162/003355303322552801,VERIFIED,The Skill Content of Recent Technological Change: An Empirical Exploration,2003.0,118.0,1279-1333,1.0,,2026-10-28
+garicano2000hierarchies,10.1086/317671,VERIFIED,Hierarchies and the Organization of Knowledge in Production,2000.0,108.0,874-904,1.0,,2026-10-28

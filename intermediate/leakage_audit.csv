@@ -1,0 +1,12 @@
+variable,fields,corr_with_expo,max_abs_corr_other,vif,outcome_fields
+expo_beta,role_k1500 (2019-2021) x external exposure,1.0,0.6019581638252285,2.233812982027548,"startdate x seniority of hires, 2016-2025"
+ilm_share,"startdate, seniority, user_id (2016-2019 manager+ hires)",-0.02288081678560361,0.3798620011582258,1.3432945976291986,"startdate x seniority of hires, 2016-2025"
+slack_cash,"Compustat che, at",0.30097109255296634,0.5931722467089084,1.9050798979241814,"startdate x seniority of hires, 2016-2025"
+analysts,I/B/E/S ANALYS,0.018518318187553253,0.27174692492328534,1.1067867193320629,"startdate x seniority of hires, 2016-2025"
+firm_age,Revelio year_founded,-0.14989171841625568,0.3798620011582258,1.3365592376074087,"startdate x seniority of hires, 2016-2025"
+remote,Revelio remote_suitability,0.6019581638252285,0.6224494956278074,1.9934613669529393,"startdate x seniority of hires, 2016-2025"
+ai_talent_pre,skills x positions (2019-2021),0.556539144282203,0.556539144282203,1.6896170357967537,"startdate x seniority of hires, 2016-2025"
+pyramid,seniority stock (2019-2021),-0.6004313623167644,0.6224494956278074,2.4792303099889734,"startdate x seniority of hires, 2016-2025"
+entry_wage,salary (2019-2021),0.419015451839631,0.5400433616270729,1.5531263439430716,"startdate x seniority of hires, 2016-2025"
+hhi_ind,Compustat sale (industry),-0.07631572115271486,0.1827597153382961,1.105221204347681,"startdate x seniority of hires, 2016-2025"
+rd_int,"Compustat xrd, at",0.24649644946863758,0.5931722467089084,1.6489499652044928,"startdate x seniority of hires, 2016-2025"

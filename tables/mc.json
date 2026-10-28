@@ -1,0 +1,14 @@
+{
+ "sizeNWC": "5.0",
+ "sizeNWCpkg": "0.0",
+ "sizeU": "0.0",
+ "sizeSpec": "11.0",
+ "sizeLeak": "10.3",
+ "sizeLeakReplay": "5.0",
+ "sizeConf": "90.0",
+ "powerNWChOne": "100.0",
+ "powerNWC": "82.0",
+ "powerU": "82.0",
+ "R": "300",
+ "B": "39"
+}

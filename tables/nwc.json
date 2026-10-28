@@ -1,0 +1,156 @@
+{
+ "registry_sha256": "9aec7d8707aa63a2af6957a17d5fd0e730c5d3584240e501f255931e2ca1c86c",
+ "B_typeA": 1000,
+ "potemkin_rates": {
+  "U (registered signs)": {
+   "rate": 0.265,
+   "lo": 0.23764588440471893,
+   "hi": 0.2923541155952811
+  },
+  "U-free (signs rationalized)": {
+   "rate": 0.934,
+   "lo": 0.9186113161576437,
+   "hi": 0.9493886838423564
+  },
+  "Bonferroni over models visited": {
+   "rate": 0.0,
+   "lo": 0.0,
+   "hi": 0.0
+  },
+  "Specification curve (median t >= 1.96)": {
+   "rate": 0.033,
+   "lo": 0.021927994869943387,
+   "hi": 0.044072005130056616
+  },
+  "NWC (loop-level p <= .05)": {
+   "rate": 0.05,
+   "lo": 0.036491632222951584,
+   "hi": 0.06350836777704842
+  }
+ },
+ "null_h1_share_sig_mean": 0.3386512345679012,
+ "null_models_mean": 2853.099,
+ "null_seconds_mean": 27.15338328051567,
+ "p_nwc_h1_max": 0.000999000999000999,
+ "p_nwc_package_U": 0.055944055944055944,
+ "p_nwc_package_Ufree": 0.14285714285714285,
+ "null_h1_max_q95": 8.578047167725373,
+ "bonf_h1_crit": 3.784011017010801,
+ "bonf_h1_potemkin": 1.0,
+ "null_h1_max_median": 7.357731435832132,
+ "null_U_T_q95": 2.646939458564971,
+ "real": {
+  "h1_max": 12.101355751463773,
+  "U_T": 2.5985450814459394,
+  "Ufree_T": 3.0752302290777225,
+  "U_models_to_first": 3483,
+  "U_models": 4156,
+  "Ufree_models_to_first": 12,
+  "share_h1_sig": 0.5354938271604939,
+  "package": {
+   "outcome": "entry_rate",
+   "treatment": "expo_beta_z",
+   "controls": "C1",
+   "fe": "FE2",
+   "sample": "S1",
+   "transform": "W1",
+   "cluster": "CL1",
+   "moderators": [
+    "firm_age_z",
+    "remote_z",
+    "pyramid_z"
+   ],
+   "t_h1": 10.611101024751365,
+   "t_mods": [
+    2.5985450814459394,
+    4.574134372810916,
+    5.5714387492971875
+   ],
+   "b": [
+    -1.075812615056625,
+    0.1316567777565726,
+    -0.3089740458497071,
+    -0.346193562720841
+   ],
+   "se": [
+    0.10138557841897777,
+    0.05066557386155227,
+    0.06754809121618241,
+    0.06213719261734894
+   ],
+   "T": 2.5985450814459394
+  }
+ },
+ "typeB": {
+  "firm_age_z": {
+   "B": 500,
+   "t_real": 2.5985450814459394,
+   "p": 0.313373253493014,
+   "share_null_selected": 0.766,
+   "p_holm_package": 0.313373253493014,
+   "p_holm_pool10": 1.0
+  },
+  "remote_z": {
+   "B": 500,
+   "t_real": 4.574134372810916,
+   "p": 0.04590818363273453,
+   "share_null_selected": 0.928,
+   "p_holm_package": 0.09181636726546906,
+   "p_holm_pool10": 0.41317365269461076
+  },
+  "pyramid_z": {
+   "B": 500,
+   "t_real": 5.5714387492971875,
+   "p": 0.001996007984031936,
+   "share_null_selected": 0.004,
+   "p_holm_package": 0.005988023952095808,
+   "p_holm_pool10": 0.01996007984031936
+  }
+ },
+ "guard_null": {
+  "B": 500,
+  "package_rate": 0.006,
+  "lo": 0,
+  "hi": 0.01276923960279144,
+  "h1_rate": 0.484,
+  "explore_success_rate": 0.082
+ },
+ "planted": {
+  "P_b0.02_g0.05": {
+   "beta_star": 0.02,
+   "gamma_star": 0.05,
+   "worlds": 100,
+   "U_power": 1.0,
+   "Ufree_power": 1.0,
+   "bonf_power": 0.92,
+   "nwc_power": 0.98,
+   "winner_ratio_median": 6.616922266209312,
+   "winner_ratio_n": 94,
+   "moderator_recovery": 0.9866666666666666
+  },
+  "P_b0.05_g0.05": {
+   "beta_star": 0.05,
+   "gamma_star": 0.05,
+   "worlds": 100,
+   "U_power": 1.0,
+   "Ufree_power": 1.0,
+   "bonf_power": 0.93,
+   "nwc_power": 0.98,
+   "winner_ratio_median": 3.2467689064837355,
+   "winner_ratio_n": 94,
+   "moderator_recovery": 0.9866666666666666
+  },
+  "P_b0.1_g0.05": {
+   "beta_star": 0.1,
+   "gamma_star": 0.05,
+   "worlds": 100,
+   "U_power": 1.0,
+   "Ufree_power": 1.0,
+   "bonf_power": 0.93,
+   "nwc_power": 0.98,
+   "winner_ratio_median": 2.1169503974519936,
+   "winner_ratio_n": 95,
+   "moderator_recovery": 0.9866666666666666
+  }
+ }
+}

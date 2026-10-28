@@ -1,0 +1,1 @@
+{"cell": "post_r0.4_d0.025", "channel": "post", "rho": 0.4, "delta": 0.025, "r": 38, "B": 99, "h1": 3.56700540924602, "t_single": 3.56700540924602, "b_single_sdw": 0.04548073781301525, "p": {"NWC": 0.11, "NWC_strat": 0.47, "NWC_cov": 0.55}, "reject": {"single": true, "naive": true, "bonf": true, "NWC": false, "NWC_strat": false, "NWC_cov": false}}

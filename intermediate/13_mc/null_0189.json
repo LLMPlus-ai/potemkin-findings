@@ -1,0 +1,1 @@
+{"scenario": "null", "r": 189, "B": 39, "obs": {"success": false, "T": -Infinity, "h1": 5.253627365152787, "n_models": 132, "spec_share": 1.0, "spec_med": 4.753445139596451}, "p_nwc_package": 1.0, "p_nwc_h1": 0.225, "U_success": false, "BONF_success": false, "SPEC_success": true}

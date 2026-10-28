@@ -1,0 +1,401 @@
+[
+ {
+  "check": "share selected pyramid_z",
+  "macro": "VSelPyr",
+  "macro_value": "0.4",
+  "recomputed": "0.4",
+  "ok": true
+ },
+ {
+  "check": "p_sel pyramid_z",
+  "macro": "VpSelPyr",
+  "macro_value": "0.002",
+  "recomputed": "0.002",
+  "ok": true
+ },
+ {
+  "check": "p_free pyramid_z",
+  "macro": "VpFreePyr",
+  "macro_value": "0.002",
+  "recomputed": "0.002",
+  "ok": true
+ },
+ {
+  "check": "p_fix pyramid_z",
+  "macro": "VpFixPyr",
+  "macro_value": "0.002",
+  "recomputed": "0.002",
+  "ok": true
+ },
+ {
+  "check": "fl p_sel pyramid_z",
+  "macro": "VpFLSelPyr",
+  "macro_value": "0.002",
+  "recomputed": "0.002",
+  "ok": true
+ },
+ {
+  "check": "fl p_free pyramid_z",
+  "macro": "VpFLFreePyr",
+  "macro_value": "0.002",
+  "recomputed": "0.002",
+  "ok": true
+ },
+ {
+  "check": "residB p_sel pyramid_z",
+  "macro": "VpResSelPyr",
+  "macro_value": "0.002",
+  "recomputed": "0.002",
+  "ok": true
+ },
+ {
+  "check": "residB p_free pyramid_z",
+  "macro": "VpResFreePyr",
+  "macro_value": "0.002",
+  "recomputed": "0.002",
+  "ok": true
+ },
+ {
+  "check": "share selected remote_z",
+  "macro": "VSelRem",
+  "macro_value": "92.8",
+  "recomputed": "92.8",
+  "ok": true
+ },
+ {
+  "check": "p_sel remote_z",
+  "macro": "VpSelRem",
+  "macro_value": "0.046",
+  "recomputed": "0.046",
+  "ok": true
+ },
+ {
+  "check": "p_free remote_z",
+  "macro": "VpFreeRem",
+  "macro_value": "0.601",
+  "recomputed": "0.601",
+  "ok": true
+ },
+ {
+  "check": "p_fix remote_z",
+  "macro": "VpFixRem",
+  "macro_value": "0.018",
+  "recomputed": "0.018",
+  "ok": true
+ },
+ {
+  "check": "fl p_sel remote_z",
+  "macro": "VpFLSelRem",
+  "macro_value": "0.032",
+  "recomputed": "0.032",
+  "ok": true
+ },
+ {
+  "check": "fl p_free remote_z",
+  "macro": "VpFLFreeRem",
+  "macro_value": "0.693",
+  "recomputed": "0.693",
+  "ok": true
+ },
+ {
+  "check": "residB p_sel remote_z",
+  "macro": "VpResSelRem",
+  "macro_value": "0.054",
+  "recomputed": "0.054",
+  "ok": true
+ },
+ {
+  "check": "residB p_free remote_z",
+  "macro": "VpResFreeRem",
+  "macro_value": "0.337",
+  "recomputed": "0.337",
+  "ok": true
+ },
+ {
+  "check": "share selected firm_age_z",
+  "macro": "VSelAge",
+  "macro_value": "76.6",
+  "recomputed": "76.6",
+  "ok": true
+ },
+ {
+  "check": "p_sel firm_age_z",
+  "macro": "VpSelAge",
+  "macro_value": "0.313",
+  "recomputed": "0.313",
+  "ok": true
+ },
+ {
+  "check": "p_free firm_age_z",
+  "macro": "VpFreeAge",
+  "macro_value": "0.002",
+  "recomputed": "0.002",
+  "ok": true
+ },
+ {
+  "check": "p_fix firm_age_z",
+  "macro": "VpFixAge",
+  "macro_value": "0.022",
+  "recomputed": "0.022",
+  "ok": true
+ },
+ {
+  "check": "fl p_sel firm_age_z",
+  "macro": "VpFLSelAge",
+  "macro_value": "0.365",
+  "recomputed": "0.365",
+  "ok": true
+ },
+ {
+  "check": "fl p_free firm_age_z",
+  "macro": "VpFLFreeAge",
+  "macro_value": "0.220",
+  "recomputed": "0.220",
+  "ok": true
+ },
+ {
+  "check": "residB p_sel firm_age_z",
+  "macro": "VpResSelAge",
+  "macro_value": "0.234",
+  "recomputed": "0.234",
+  "ok": true
+ },
+ {
+  "check": "residB p_free firm_age_z",
+  "macro": "VpResFreeAge",
+  "macro_value": "0.004",
+  "recomputed": "0.004",
+  "ok": true
+ },
+ {
+  "check": "Holm-10 pyramid_z",
+  "macro": "VHolmTenPyr",
+  "macro_value": "0.020",
+  "recomputed": "0.020",
+  "ok": true
+ },
+ {
+  "check": "Holm-10 remote_z",
+  "macro": "VHolmTenRem",
+  "macro_value": "0.413",
+  "recomputed": "0.413",
+  "ok": true
+ },
+ {
+  "check": "Holm-10 firm_age_z",
+  "macro": "VHolmTenAge",
+  "macro_value": "1.000",
+  "recomputed": "1.000",
+  "ok": true
+ },
+ {
+  "check": "joint success share",
+  "macro": "VJointSuccess",
+  "macro_value": "94.0",
+  "recomputed": "94.0",
+  "ok": true
+ },
+ {
+  "check": "joint min-P step-down pyramid_z",
+  "macro": "VMinPPyr",
+  "macro_value": "0.010",
+  "recomputed": "0.010",
+  "ok": true
+ },
+ {
+  "check": "joint min-P step-down remote_z",
+  "macro": "VMinPRem",
+  "macro_value": "0.678",
+  "recomputed": "0.678",
+  "ok": true
+ },
+ {
+  "check": "joint min-P step-down firm_age_z",
+  "macro": "VMinPAge",
+  "macro_value": "0.678",
+  "recomputed": "0.678",
+  "ok": true
+ },
+ {
+  "check": "covA p(H1)",
+  "macro": "VcovAph",
+  "macro_value": "0.001",
+  "recomputed": "0.001",
+  "ok": true
+ },
+ {
+  "check": "covA p(package)",
+  "macro": "VcovApkg",
+  "macro_value": "0.137",
+  "recomputed": "0.137",
+  "ok": true
+ },
+ {
+  "check": "budget U<=1000",
+  "macro": "VBudUThousand",
+  "macro_value": "3.7",
+  "recomputed": "3.7",
+  "ok": true
+ },
+ {
+  "check": "budget U<=3483",
+  "macro": "VBudUReal",
+  "macro_value": "25.7",
+  "recomputed": "25.7",
+  "ok": true
+ },
+ {
+  "check": "budget Ufree<=12",
+  "macro": "VBudFreeTwelve",
+  "macro_value": "8.3",
+  "recomputed": "8.3",
+  "ok": true
+ },
+ {
+  "check": "models min",
+  "macro": "VModelsMin",
+  "macro_value": "2,169",
+  "recomputed": "2,169",
+  "ok": true
+ },
+ {
+  "check": "models max",
+  "macro": "VModelsMax",
+  "macro_value": "5,171",
+  "recomputed": "5,171",
+  "ok": true
+ },
+ {
+  "check": "distinct triples",
+  "macro": "VTriples",
+  "macro_value": "21",
+  "recomputed": "21",
+  "ok": true
+ },
+ {
+  "check": "MC exch null NWC",
+  "macro": "VExNull",
+  "macro_value": "6.5",
+  "recomputed": "6.5",
+  "ok": true
+ },
+ {
+  "check": "MC exch level NWC",
+  "macro": "VExLevel",
+  "macro_value": "6.0",
+  "recomputed": "6.0",
+  "ok": true
+ },
+ {
+  "check": "MC exch post_r0.6_d0.1 NWC",
+  "macro": "VExNWCSixTen",
+  "macro_value": "100.0",
+  "recomputed": "100.0",
+  "ok": true
+ },
+ {
+  "check": "MC exch post_r0.6_d0.2 NWC",
+  "macro": "VExNWCSixTwenty",
+  "macro_value": "100.0",
+  "recomputed": "100.0",
+  "ok": true
+ },
+ {
+  "check": "MC exch post_r0.6_d0.2 NWC_cov",
+  "macro": "VExCovSixTwenty",
+  "macro_value": "4.5",
+  "recomputed": "4.5",
+  "ok": true
+ },
+ {
+  "check": "MC mod all FL_fix",
+  "macro": "VMmFLFixAll",
+  "macro_value": "0.5",
+  "recomputed": "0.5",
+  "ok": true
+ },
+ {
+  "check": "MC mod all perm_fix",
+  "macro": "VMmPermFixAll",
+  "macro_value": "95.0",
+  "recomputed": "95.0",
+  "ok": true
+ },
+ {
+  "check": "MC mod clean FL_fix",
+  "macro": "VMmFLFixClean",
+  "macro_value": "0.5",
+  "recomputed": "0.5",
+  "ok": true
+ },
+ {
+  "check": "MC mod clean perm_fix",
+  "macro": "VMmPermFixClean",
+  "macro_value": "4.0",
+  "recomputed": "4.0",
+  "ok": true
+ },
+ {
+  "check": "proposal/stage1_proposal.tex: phrase removed",
+  "macro": "if and only if",
+  "macro_value": "False",
+  "recomputed": "False",
+  "ok": true
+ },
+ {
+  "check": "proposal/stage1_proposal.tex: phrase removed",
+  "macro": "however adaptive",
+  "macro_value": "False",
+  "recomputed": "False",
+  "ok": true
+ },
+ {
+  "check": "proposal/stage1_proposal.tex: phrase removed",
+  "macro": "First procedure-level",
+  "macro_value": "False",
+  "recomputed": "False",
+  "ok": true
+ },
+ {
+  "check": "proposal/stage1_proposal.tex: phrase removed",
+  "macro": "exactly as an AI agent",
+  "macro_value": "False",
+  "recomputed": "False",
+  "ok": true
+ },
+ {
+  "check": "proposal/stage1_proposal.tex: phrase removed",
+  "macro": "Only the link between",
+  "macro_value": "False",
+  "recomputed": "False",
+  "ok": true
+ },
+ {
+  "check": "proposal/stage1_proposal.tex: phrase removed",
+  "macro": "Holm, H2",
+  "macro_value": "False",
+  "recomputed": "False",
+  "ok": true
+ },
+ {
+  "check": "proposal/stage1_proposal.tex: phrase removed",
+  "macro": "27--28 February",
+  "macro_value": "False",
+  "recomputed": "False",
+  "ok": true
+ },
+ {
+  "check": "proposal/stage1_proposal.tex: phrase removed",
+  "macro": "now pure code",
+  "macro_value": "False",
+  "recomputed": "False",
+  "ok": true
+ },
+ {
+  "check": "no pending macros",
+  "macro": "*",
+  "macro_value": "0",
+  "recomputed": "0",
+  "ok": true
+ }
+]

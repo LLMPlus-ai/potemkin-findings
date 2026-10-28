@@ -1,0 +1,22 @@
+% Decision ledger of the prototype (who decided what, when, and whether it is replayed).
+% Sources: registry/design_space.yaml (field `authoring`), README.md (AI use), intermediate/00_design_decisions.md.
+\begin{table}[!htbp]\centering\footnotesize
+\caption{Who took which research decision in the prototype, and how calibration treats it}\label{tab:v_ledger}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.5cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{4.2cm}}
+\toprule
+Decision & Proposed / taken by & When & Treatment in calibration \\
+\midrule
+Research question, testbed, fit with the call & Authors & Before data access & Fixed; outside the loop \\
+Constructs and proxies (3 outcomes, 3 exposures), controls, fixed effects, samples, transforms, clustering & AI agent, from the literature; approved by the authors & Before any outcome (registry hashed 29~Sep~2026, 04:19) & Frozen and hashed: a non-replayable input that cannot depend on outcomes \\
+Ten moderators with signs and mechanisms; H1 mechanism and rival & AI agent, from the literature; approved by the authors & Before any outcome & Frozen and hashed \\
+Search policies U and U-free, package statistic, stopping rule & Specified in the registry; coded by the AI agent & Before any outcome & Code: replayed identically in every world \\
+Data assembly and measurement audits (skill dictionary, role crosswalk, linkage) & AI agent; reviewed by the authors & Before any outcome & Fixed code; audits reported \\
+Run-time choices: which specification next, which moderators to keep, which triples, when to stop, which signs (U-free) & The coded policy & After data access & Replayed in every null, moderator, and planted world \\
+Ex post identification checks (trend break, 2019+ window, exposure$^2$ diagnostic) & Authors with the AI agent & After outcomes were seen & Not priced; labelled ex post \\
+\textit{Stage 2:} run-time choices taken by a live LLM agent & LLM agent (open weights, deterministic decoding) & After data access & Each call logged and re-issued in every world \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.97\linewidth}\vspace{2pt}\scriptsize\textit{Notes.} Reconstructed from \texttt{registry/design\_space.yaml}
+(field \texttt{authoring}), the AI-use statement in \texttt{README.md}, and the dated entries of
+\texttt{intermediate/00\_design\_decisions.md}. The AI agent works under the authors' direction.\end{minipage}
+\end{table}

@@ -1,0 +1,9 @@
+moderator,world,policy,same_success,same_T,same_pkg,same_models,sec_uncached,sec_cached
+pyramid_z,1,U,True,True,True,True,22.9,2.6
+pyramid_z,1,Ufree,True,True,True,True,22.9,2.6
+pyramid_z,2,U,True,True,True,True,23.1,3.2
+pyramid_z,2,Ufree,True,True,True,True,23.1,3.2
+firm_age_z,1,U,True,True,True,True,28.4,3.2
+firm_age_z,1,Ufree,True,True,True,True,28.4,3.2
+firm_age_z,2,U,True,True,True,True,23.5,3.1
+firm_age_z,2,Ufree,True,True,True,True,23.5,3.1

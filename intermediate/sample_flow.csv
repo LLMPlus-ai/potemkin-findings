@@ -1,0 +1,8 @@
+step,rows,firms
+Revelio firm-years at Compustat-linked firms (2015-2025),118346,11182
+Firm-years 2016-2025,107676,11161
+  with industry code,107636,11157
+  with predetermined exposure (2019-2021 role mix),107141,10810
+  with >= 10 hires (S1 outcome definition),67099,8425
+  with non-missing lagged controls (analysis sample S1),41352,6468
+  observed both before and after the shock,34333,4078

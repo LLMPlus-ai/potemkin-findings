@@ -1,0 +1,26 @@
+\begin{table}[!htbp]\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Generative-AI exposure and the experience tilt of hiring (H1)}\label{tab:h1}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
+\toprule
+ & (1) & (2) & (3) & (4) & (5) & (6) \\
+ & Exp. share & Exp. share & Exp. share & Mean sen. & Entry rate & Entry rate \\
+\midrule
+Exposure $\times$ Post (H1) & 1.3172*** & 1.2066*** & 0.7353*** & 0.0162*** & -0.2825*** & -0.2005** \\
+ & (0.1220) & (0.1250) & (0.2276) & (0.0041) & (0.0861) & (0.0848) \\
+ & [$p$<0.001] & [$p$<0.001] & [$p$=0.00124] & [$p$<0.001] & [$p$=0.00105] & [$p$=0.0181] \\
+\midrule
+Firm controls (lagged) & No & Yes & Yes & Yes & Yes & Yes \\
+Pre-period size, hiring growth $\times$ year & No & No & Yes & No & No & Yes \\
+Firm FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+Year FE & Yes & Yes & -- & Yes & -- & -- \\
+Industry (NAICS-3) $\times$ year FE & No & No & Yes & No & Yes & Yes \\
+Clustered SE & Firm & Firm & Firm & Firm & Firm & Firm \\
+Observations & 34,333 & 34,333 & 34,333 & 34,333 & 34,333 & 34,333 \\
+Firms & 4,078 & 4,078 & 4,078 & 4,078 & 4,078 & 4,078 \\
+Within $R^2$ & 0.008 & 0.016 & 0.012 & 0.015 & 0.158 & 0.256 \\
+Pre-period mean of outcome & 36.698 & 36.698 & 36.698 & 2.495 & 10.516 & 10.516 \\
+1-SD exposure effect, \% of pre-period mean & +3.6\% & +3.3\% & +2.0\% & +0.6\% & -2.7\% & -1.9\% \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{0.97\linewidth}\vspace{2pt}\scriptsize\textit{Notes.} Unit: firm-year, 2016--2025. Exposure is the firm's 2019--2021 role-mix-weighted GPT-4 $\beta$ exposure (Eloundou et al. 2024), standardized across firms; Post = 1 for 2023--2025. Outcomes: share of hires at associate level or above (\%, columns 1--3); mean seniority of hires (1--7, column 4); entry-level hires per 100 employees (winsorized at 1/99 by year, columns 5--6; the registered H1 sign is negative). Standard errors clustered by firm in parentheses; two-sided $p$-values in brackets. *** $p<0.01$, ** $p<0.05$, * $p<0.10$.\end{minipage}
+\end{table}

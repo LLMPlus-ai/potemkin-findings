@@ -1,0 +1,43 @@
+\begin{table}[!htbp]\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Organizational moderators of the exposure effect on entry-level hiring (H2--H4)}\label{tab:moderation}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
+\toprule
+ & (1) & (2) & (3) & (4) & (5) & (6) \\
+ & H1 & +H4 & +H3 & +H2 & Joint & Joint+C2 \\
+\midrule
+Exposure $\times$ Post (H1) & -0.2825*** & -0.2349*** & -0.7247*** & -1.0005*** & -1.0758*** & -1.0958*** \\
+ & (0.0861) & (0.0848) & (0.1006) & (0.0953) & (0.1014) & (0.1012) \\
+ & [$p$=0.00105] & [$p$=0.00564] & [$p$<0.001] & [$p$<0.001] & [$p$<0.001] & [$p$<0.001] \\
+Exposure $\times$ Post $\times$ Organizational age (H4) &  & 0.1070** &  &  & 0.1317*** & 0.0997** \\
+ &  & (0.0532) &  &  & (0.0507) & (0.0490) \\
+ &  & [$p$=0.0444] &  &  & [$p$=0.0094] & [$p$=0.0421] \\
+Exposure $\times$ Post $\times$ Digitizable work (H3) &  &  & -0.1198** &  & -0.3090*** & -0.2827*** \\
+ &  &  & (0.0584) &  & (0.0675) & (0.0646) \\
+ &  &  & [$p$=0.0401] &  & [$p$<0.001] & [$p$<0.001] \\
+Exposure $\times$ Post $\times$ Hierarchy shape (H2) &  &  &  & -0.1178** & -0.3462*** & -0.3131*** \\
+ &  &  &  & (0.0509) & (0.0621) & (0.0614) \\
+ &  &  &  & [$p$=0.0208] & [$p$<0.001] & [$p$<0.001] \\
+Organizational age $\times$ Post &  & 0.4522*** &  &  & 0.6078*** & 0.5584*** \\
+ &  & (0.0501) &  &  & (0.0498) & (0.0517) \\
+ &  & [$p$<0.001] &  &  & [$p$<0.001] & [$p$<0.001] \\
+Digitizable work $\times$ Post &  &  & 0.7213*** &  & 0.3038*** & 0.3680*** \\
+ &  &  & (0.0994) &  & (0.0976) & (0.0947) \\
+ &  &  & [$p$<0.001] &  & [$p$=0.00187] & [$p$<0.001] \\
+Hierarchy shape $\times$ Post &  &  &  & -1.1817*** & -1.1620*** & -1.2240*** \\
+ &  &  &  & (0.0752) & (0.0769) & (0.0774) \\
+ &  &  &  & [$p$<0.001] & [$p$<0.001] & [$p$<0.001] \\
+\midrule
+Firm controls (lagged) & Yes & Yes & Yes & Yes & Yes & Yes \\
+Pre-period size, hiring growth $\times$ year & No & No & No & No & No & Yes \\
+Firm FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+Industry (NAICS-3) $\times$ year FE & Yes & Yes & Yes & Yes & Yes & Yes \\
+Clustered SE & Firm & Firm & Firm & Firm & Firm & Firm \\
+Observations & 34,333 & 34,333 & 34,333 & 34,333 & 34,333 & 34,333 \\
+Firms & 4,078 & 4,078 & 4,078 & 4,078 & 4,078 & 4,078 \\
+Within $R^2$ & 0.158 & 0.161 & 0.161 & 0.172 & 0.180 & 0.279 \\
+Pre-period mean of outcome & 10.516 & 10.516 & 10.516 & 10.516 & 10.516 & 10.516 \\
+1-SD exposure effect, \% of pre-period mean & -2.7\% & -2.2\% & -6.9\% & -9.5\% & -10.2\% & -10.4\% \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{0.97\linewidth}\vspace{2pt}\scriptsize\textit{Notes.} Outcome: entry-level hires per 100 employees (winsorized at 1/99 by year); a negative coefficient on Exposure $\times$ Post means fewer entry-level hires. Moderators are measured before the shock (2016--2021) and standardized across firms; their main effects are absorbed by firm fixed effects, and Moderator $\times$ Post terms absorb differential trends. Registered signs: hierarchy shape amplifies (more negative), digitizable work amplifies, organizational age attenuates (less negative). Column 5 is the package reported by the registered loop (policy U) after 3,483 models; search-adjusted $p$-values are in Table~\ref{tab:procedures}. Standard errors clustered by firm. *** $p<0.01$, ** $p<0.05$, * $p<0.10$.\end{minipage}
+\end{table}

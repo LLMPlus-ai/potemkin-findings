@@ -1,0 +1,1 @@
+{"b": 305, "kind": "covA", "tag": "covA", "U": {"success": false, "T_first": 1.6334319768995915, "h1_max": 7.288542095907535, "n_models": 2048, "n_to_first": 0}, "Ufree": {"success": true, "T_first": 3.4506371862540295, "h1_max": 7.288542095907535, "n_models": 2375, "n_to_first": 12}, "seconds": 6.685374975204468}

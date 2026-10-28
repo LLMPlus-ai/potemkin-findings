@@ -1,0 +1,26 @@
+\begin{table}[!htbp]\centering\footnotesize
+\caption{Monte Carlo: rejection rates (\%) when exposure is not exchangeable within sector}\label{tab:v_exch}
+\setlength{\tabcolsep}{4.5pt}\begin{tabular}{lrrrrrrrr}
+\toprule
+ & & & Spurious & \multicolumn{3}{c}{NWC worlds} & \multicolumn{2}{c}{Nominal} \\
+\cmidrule(lr){5-7}\cmidrule(lr){8-9}
+Trait channel & $\rho$ & $\delta$ & effect (\%) & within sector & strata on $u$ & $u$-preserving & one regression & naive loop \\
+\midrule
+level only & 0.6 & 1 & 1 & 6.0 & 6.5 & 6.0 & 17.0 & 20.5 \\
+none (null) & 0.0 & 0 & 1 & 6.5 & 5.5 & 6.0 & 17.0 & 19.5 \\
+post-shock shift & 0.2 & 0.025 & 3 & 11.5 & 6.0 & 6.5 & 20.0 & 23.5 \\
+post-shock shift & 0.2 & 0.05 & 5 & 19.5 & 6.0 & 7.0 & 25.0 & 30.0 \\
+post-shock shift & 0.2 & 0.1 & 9 & 39.5 & 9.0 & 6.0 & 35.0 & 42.0 \\
+post-shock shift & 0.2 & 0.2 & 18 & 87.0 & 12.0 & 5.5 & 58.5 & 61.5 \\
+post-shock shift & 0.4 & 0.025 & 5 & 20.0 & 7.0 & 6.0 & 25.5 & 30.5 \\
+post-shock shift & 0.4 & 0.05 & 9 & 43.0 & 8.0 & 7.0 & 35.0 & 43.0 \\
+post-shock shift & 0.4 & 0.1 & 18 & 87.5 & 14.5 & 6.0 & 61.5 & 63.0 \\
+post-shock shift & 0.4 & 0.2 & 34 & 100.0 & 22.0 & 5.5 & 93.5 & 96.0 \\
+post-shock shift & 0.6 & 0.025 & 7 & 29.0 & 9.5 & 5.5 & 30.5 & 35.5 \\
+post-shock shift & 0.6 & 0.05 & 14 & 70.0 & 12.5 & 7.5 & 48.0 & 52.5 \\
+post-shock shift & 0.6 & 0.1 & 26 & 100.0 & 19.5 & 5.5 & 84.5 & 87.0 \\
+post-shock shift & 0.6 & 0.2 & 51 & 100.0 & 45.0 & 4.5 & 100.0 & 100.0 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.97\linewidth}\vspace{2pt}\scriptsize\textit{Notes.} $R=200$ synthetic twins per row, $B=99$ null worlds per twin; Monte Carlo standard error about 1.5 points at 5\%. Exposure has no effect. A firm trait $u$ with within-sector correlation $\rho$ with exposure shifts the outcome either in levels (1 between-firm SD) or after the shock ($\delta$ within-firm SDs). Spurious effect: the mean estimate of the pre-specified regression as a share of the real H1 estimate. NWC: within-sector permutation (the application's Type A worlds); strata on $u$: within sector $\times$ quintile of $u$; $u$-preserving: exposure = projection on (sector, $u$) + permuted residual.\end{minipage}
+\end{table}

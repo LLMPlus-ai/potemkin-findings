@@ -1,0 +1,61 @@
+% Theoretical construct measurement table (technical appendix, Table A1)
+\begingroup\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{2.3cm}p{1.35cm}p{6.3cm}p{5.2cm}}
+\caption{Theoretical constructs and their measurement}\label{tab:construct}\\
+\toprule
+Variable & Type & Definition and formula & Rationale (with citations) \\
+\midrule
+\endfirsthead
+\toprule
+Variable & Type & Definition and formula & Rationale (with citations) \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{4}{l}{\textit{Outcome construct: experience tilt of hiring (firm $i$, year $t$)}}\\
+Experienced-hire share & Dependent (H1 primary) & $\text{ExpShare}_{it}=\sum_{k\ge 3} H_{itk}/\sum_{k=1}^{7} H_{itk}$, $H_{itk}$ = hires (positions starting in $t$) at Revelio seniority $k$ (1 entry \ldots 7 senior executive) & Seniority of entry is the organizational margin through which substitution for novices appears (Autor 2024; Brynjolfsson, Chandar \& Chen 2025) \\
+Mean hire seniority & Dependent (alt.) & $\sum_k k\,H_{itk}/\sum_k H_{itk}$ & Continuous version of the same construct; less sensitive to the level-3 cut-off \\
+Entry-level hiring rate & Dependent (alt.; registered sign $-$) & $100\times(H_{it1}+H_{it2})/\text{Headcount}_{i,t-1}$ & Ports-of-entry view of internal labor markets (Doeringer \& Piore 1971) \\
+Experienced-hire share, U.S. hires & Dependent (robustness) & ExpShare computed on U.S.-located positions only & Removes offshore hiring composition \\
+\midrule
+\multicolumn{4}{l}{\textit{Treatment construct: predetermined workforce exposure to large language models}}\\
+LLM exposure (GPT-4 $\beta$) & Independent (primary) & $E_i=\sum_r s_{ir}E_r$, $s_{ir}$ = firm's 2019--2021 headcount share in role $r$; $E_r=\sum_o p(o\mid r)\,\beta_o$, $p(o\mid r)$ = share of role-$r$ postings (2018--2022) in O*NET occupation $o$; $\beta_o$ = GPT-4-rated exposure & Task-based exposure of occupations to LLMs (Eloundou et al. 2024); shift-share logic (Borusyak, Hull \& Jaravel 2022) \\
+LLM exposure (human $\beta$) & Independent (alt.) & as above with human-rated $\beta_o$ & Convergent validity across raters (Eloundou et al. 2024) \\
+Language-modeling AIOE & Independent (alt.) & as above with Felten et al.\ language-modeling AIOE & Independent exposure method (Felten, Raj \& Seamans 2021, 2023) \\
+Non-language AI exposure & Negative control & residual of general AIOE on language-modeling AIOE across roles, aggregated as $E_i$ & Specificity: exposure to non-language AI should not reproduce the post-2022 break \\
+Post-ChatGPT & Shock & $\text{Post}_t=\mathbb{1}[t\ge 2023]$ (ChatGPT released 30 Nov.\ 2022) & Timing external to firms \\
+\midrule
+\multicolumn{4}{l}{\textit{Endogenous adoption (two-stage least squares)}}\\
+GenAI adoption (dated) & Endogenous & \% of active workforce in $t$ with a generative-AI skill first reported by 31 Dec.\ $t$ (dictionary of 51 raw skill strings) & Direct measure of workforce uptake; dates track r\'esum\'e capture (audited) \\
+GenAI listing (ever) & Descriptive & \% of active workforce listing any generative-AI skill & Composition, not timing (audited; not used as treatment) \\
+\midrule
+\multicolumn{4}{l}{\textit{Moderator pool (all predetermined, standardized; registered sign relative to H1)}}\\
+Hierarchy shape & Moderator (amplifies) & $\ln\big[(N_{1}+N_{2})/\sum_{k\ge4}N_{k}\big]$, headcount by seniority, 2019--2021 & Bottom-heavy hierarchies hold more codified junior task mass \\
+Digitizable work & Moderator (amplifies) & mean Revelio remote-suitability of active positions, 2019--2021 & Digitally performed tasks are easier to reallocate to AI \\
+Organizational age & Moderator (attenuates) & $\ln(1+2022-\text{founding year})$ & Structural inertia (Hannan \& Freeman 1984; S{\o}rensen \& Stuart 2000) \\
+Internal labor market & Moderator (attenuates) & share of manager-and-above hires 2016--2019 filled by internal movers & Make-versus-buy (Bidwell \& Keller 2014) \\
+Financial slack & Moderator (attenuates) & cash/assets, FY2019--2021 & Slack buffers pressure for savings (Cyert \& March 1963; Bourgeois 1981) \\
+Analyst coverage & Moderator (amplifies) & $\ln(1+\text{analysts})$, FY1 EPS forecasters, 2019--2021 & Capital-market short-termism (Graham, Harvey \& Rajgopal 2005; He \& Tian 2013) \\
+Prior AI talent & Moderator (amplifies) & share of 2019--2021 workforce listing core (non-generative) AI skills & Absorptive capacity (Cohen \& Levinthal 1990) \\
+Junior labor cost & Moderator (amplifies) & $\ln$ mean salary, seniority 1--2, 2019--2021 & Larger savings from substitution \\
+Industry concentration & Moderator (attenuates) & NAICS-3 sales Herfindahl, FY2019--2021 & Weaker competitive pressure to adopt \\
+Knowledge intensity & Moderator (attenuates) & R\&D/assets, FY2019--2021 & Tacit knowledge transmitted by apprenticeship (Kogut \& Zander 1992) \\
+\midrule
+\multicolumn{4}{l}{\textit{Controls (lagged one year) and trend adjustments}}\\
+Log headcount & Control & $\ln \text{Headcount}_{i,t-1}$ (Revelio) & Size (Becker \& James tests) \\
+Hiring rate & Control & $H_{i,t-1}/\text{Headcount}_{i,t-1}$ & Hiring intensity and composition \\
+Separation rate & Control & separations$_{i,t-1}$/Headcount$_{i,t-1}$ & Replacement hiring \\
+Log assets & Control & $\ln \text{AT}_{i,t-1}$ (Compustat) & Scale \\
+ROA & Control & OIBDP/AT, $t-1$ & Performance pressure \\
+Leverage & Control & (DLTT+DLC)/AT, $t-1$ & Financial constraint \\
+Sales growth & Control & $\ln \text{SALE}_{t-1}-\ln \text{SALE}_{t-2}$ & Demand shocks \\
+R\&D intensity & Control & XRD/AT, $t-1$ (missing = 0) & Innovation intensity \\
+Pre-period size $\times$ year & Trend control (C2) & mean $\ln$ headcount 2019--2021 $\times$ year dummies & Size-specific trends \\
+Pre-period hiring growth $\times$ year & Trend control (C2) & $\ln(1+H_{2021})-\ln(1+H_{2019})$ $\times$ year dummies & 2021--22 hiring boom \\
+\midrule
+\multicolumn{4}{l}{\textit{Design variables}}\\
+Hires & Sample rule & $\sum_k H_{itk}\ge 10$ (S1), $\ge 30$ (S2) & Precision of share outcomes \\
+Industry & Fixed effects / strata & NAICS-3 $\times$ year fixed effects; NAICS-2 permutation strata & Absorbs sector shocks (2022--23 technology downturn) \\
+\end{longtable}
+\endgroup

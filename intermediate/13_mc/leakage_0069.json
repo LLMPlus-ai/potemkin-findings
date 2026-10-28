@@ -1,0 +1,1 @@
+{"scenario": "leakage", "r": 69, "B": 39, "obs": {"success": false, "T": -Infinity, "h1": -0.15235467495944235, "n_models": 12, "spec_share": 0.0, "spec_med": -0.4530992475497442}, "p_nwc_package": 1.0, "p_nwc_h1": 0.925, "U_success": false, "BONF_success": false, "SPEC_success": false}

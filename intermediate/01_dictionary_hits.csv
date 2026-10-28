@@ -1,0 +1,91 @@
+tier,skill_norm,n,u
+aicore,machine learning,4430308,4413467
+aicore,artificial intelligence (ai),3217871,3217845
+aicore,deep learning,1172399,1170210
+genai,generative ai,904734,904720
+aicore,natural language processing (nlp),716601,716591
+aicore,computer vision,627722,625887
+aicore,tensorflow,627202,627201
+genai,large language models (llm),548629,548628
+aicore,artificial intelligence,495860,491432
+genai,prompt engineering,474057,474016
+aicore,pytorch,455607,455607
+aicore,scikit-learn,440241,440238
+genai,chatgpt,410573,410573
+aicore,opencv,280193,280193
+genai,generative ai tools,250752,250751
+aicore,machine learning algorithms,248420,248403
+aicore,neural networks,245486,245220
+aicore,keras,227124,227124
+genai,microsoft copilot,223443,223443
+aicore,artificial neural networks,203922,203873
+aicore,convolutional neural networks (cnn),197094,197094
+genai,retrieval-augmented generation (rag),163370,163370
+aicore,pattern recognition,159245,159166
+genai,langchain,145034,145033
+aicore,mlops,126519,126519
+genai,ai agents,121893,121885
+aicore,reinforcement learning,119531,119357
+aicore,supervised learning,111371,111283
+aicore,natural language processing,91212,91001
+aicore,applied machine learning,78665,78661
+aicore,unsupervised learning,77558,77557
+genai,google gemini,69013,69013
+genai,github copilot,66176,66176
+aicore,aws sagemaker,58893,58893
+aicore,deep neural networks (dnn),58876,58876
+genai,gen ai,58276,58273
+genai,genai,57046,57046
+genai,openai api,54388,54388
+aicore,xgboost,46764,46764
+genai,agentic ai,45106,45105
+aicore,speech recognition,43207,43206
+genai,llm,43036,43034
+genai,gpt-4,39117,39117
+genai,midjourney,34484,34484
+aicore,mlflow,33452,33452
+genai,openai,33440,33440
+genai,anthropic claude,31073,31073
+genai,microsoft copilot studio,29823,29823
+aicore,transfer learning,21421,21420
+genai,prompt design,19456,19456
+genai,stable diffusion,19092,19091
+aicore,hugging face,14454,14454
+genai,gpt-3,12636,12636
+aicore,image recognition,12551,12539
+genai,llms,9667,9667
+aicore,sklearn,9020,9020
+genai,chat gpt,8289,8288
+aicore,kubeflow,8284,8284
+genai,large language models (llms),8158,8158
+aicore,bert,7681,7681
+genai,dall-e,7472,7472
+genai,large language models,5839,5838
+genai,llamaindex,5647,5647
+aicore,amazon sagemaker,5489,5489
+aicore,convolutional neural networks,4226,4226
+aicore,azure machine learning,2934,2934
+aicore,hugging face transformers,2933,2933
+genai,retrieval augmented generation,2085,2085
+genai,generativeai,1859,1859
+genai,generative artificial intelligence,1675,1666
+genai,genrative ai,1623,1623
+genai,microsoft 365 copilot,1508,1507
+genai,large language model,1457,1457
+genai,claude ai,1438,1438
+genai,retrieval-augmented generation,998,998
+genai,prompt-engineering,931,931
+aicore,recurrent neural networks,674,674
+genai,copilot studio,639,639
+aicore,scikitlearn,572,572
+genai,large language model (llm),535,535
+genai,dalle,432,432
+genai,advanced prompt engineering,425,425
+genai,genarative ai,404,404
+genai,gpt4,339,339
+genai,generative ai basics,304,304
+genai,gpt-4o,273,273
+genai,gpt3,235,235
+genai,ai generative,192,192
+genai,chat-gpt,151,151
+genai,git hub copilot,67,67

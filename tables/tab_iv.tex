@@ -1,0 +1,29 @@
+\begin{table}[!htbp]\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Workforce generative-AI adoption: first stage and two-stage least squares}\label{tab:iv}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lccccc@{}}
+\toprule
+ & (1) & (2) & (3) & (4) & (5) \\
+ & GenAI adopt. & Exp. share & Exp. share & Entry rate & Entry rate \\
+\midrule
+Exposure $\times$ Post (H1) & 0.1846*** & 1.2066*** &  & -0.0465 &  \\
+ & (0.0078) & (0.1250) &  & (0.0518) &  \\
+ & [$p$<0.001] & [$p$<0.001] &  & [$p$=0.37] &  \\
+GenAI adoption (\%) &  &  & 6.5358*** &  & -0.2519 \\
+ &  &  & (0.7348) &  & (0.2799) \\
+ &  &  & [$p$<0.001] &  & [$p$=0.368] \\
+\midrule
+Firm controls (lagged) & Yes & Yes & Yes & Yes & Yes \\
+Pre-period size, hiring growth $\times$ year & No & No & No & No & No \\
+Firm FE & Yes & Yes & Yes & Yes & Yes \\
+Year FE & Yes & Yes & Yes & Yes & Yes \\
+Estimator & OLS & OLS & 2SLS & OLS & 2SLS \\
+Clustered SE & Firm & Firm & Firm & Firm & Firm \\
+Observations & 34,333 & 34,333 & 34,333 & 34,333 & 34,333 \\
+Firms & 4,078 & 4,078 & 4,078 & 4,078 & 4,078 \\
+Within $R^2$ & 0.127 & 0.016 & -- & 0.169 & -- \\
+Pre-period mean of outcome & 0.000 & 36.698 & 36.698 & 10.516 & 10.516 \\
+1-SD exposure effect, \% of pre-period mean & -- & +3.3\% & -- & -0.4\% & -- \\
+\bottomrule
+\end{tabular*}
+\begin{minipage}{0.97\linewidth}\vspace{2pt}\scriptsize\textit{Notes.} Column 1: first stage; the outcome is the percentage of the year-$t$ workforce with a dated generative-AI skill (first-stage $F$ = 562). Columns 2 and 4: reduced forms; columns 3 and 5: two-stage least squares instrumenting adoption with Exposure $\times$ Post. The exclusion restriction requires exposure to affect hiring only through workforce adoption; the reduced forms remain intent-to-treat estimates if it fails. Firm and year fixed effects; standard errors clustered by firm.\end{minipage}
+\end{table}

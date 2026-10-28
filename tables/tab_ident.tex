@@ -1,0 +1,26 @@
+\begin{table}[!htbp]\centering\footnotesize
+\caption{Identification checks for H1}\label{tab:ident}
+\begin{tabular}{lrrrr}
+\toprule
+Check & Coef.\ (pp) & (SE) & $t$ & N \\
+\midrule
+Placebo shock in 2019 (pre-period data only) & -0.26 & (0.10) & -2.73 & 23,403 \\
+Placebo shock in 2020 (pre-period data only) & -0.24 & (0.10) & -2.39 & 23,403 \\
+Negative control: non-language AI exposure $\times$ Post & -0.44 & (0.12) & -3.62 & 34,333 \\
+Negative control, jointly with LLM exposure & -0.63 & (0.12) & -5.36 & 34,333 \\
+LLM exposure, jointly with negative control & 1.30 & (0.13) & 10.28 & 34,333 \\
+Excluding the information sector (NAICS 51) & 1.17 & (0.14) & 8.22 & 30,420 \\
+Remote suitability $\times$ year and NAICS-3 $\times$ year FE & 1.22 & (0.29) & 4.26 & 34,333 \\
+Excluding 2025 (new data delivery) & 0.99 & (0.13) & 7.95 & 30,865 \\
+Excluding 2020--2021 (COVID-19) & 1.12 & (0.13) & 8.57 & 27,248 \\
+U.S.-headquartered firms & 1.10 & (0.15) & 7.42 & 26,433 \\
+Outcome from U.S. hires only & 0.82 & (0.15) & 5.55 & 30,437 \\
+Standard errors clustered by NAICS-3 & 1.21 & (0.27) & 4.51 & 34,333 \\
+Firm-years with $\ge$30 hires & 1.11 & (0.12) & 9.14 & 30,595 \\
+\textit{Ex post:} exposure-specific linear trend & 1.38 & (0.14) & 10.19 & 34,333 \\
+\textit{Ex post:} 2019--2025 window & 1.26 & (0.12) & 10.24 & 25,297 \\
+\textit{Ex post:} trend and NAICS-3 $\times$ year FE & 1.45 & (0.24) & 5.94 & 34,333 \\
+\bottomrule
+\end{tabular}
+\begin{minipage}{0.95\linewidth}\vspace{2pt}\scriptsize\textit{Notes.} Outcome: experienced-hire share in percentage points; coefficient on the (placebo or control) exposure $\times$ post term unless stated. All models include firm and year fixed effects and the lagged controls; standard errors clustered by firm. Joint test of no pre-trends (2016--2021 event-study coefficients): $\chi^2(6)=16.6$, $p=0.011$; approximate relative-magnitudes breakdown value $\bar M^*=1.51$ (Rambachan and Roth 2023). Rows marked \textit{ex post} were added after the event study was inspected.\end{minipage}
+\end{table}

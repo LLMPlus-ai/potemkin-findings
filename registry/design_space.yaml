@@ -1,0 +1,176 @@
+# Registered design space (version 1)
+# Frozen BEFORE any outcome regression was estimated. At the time of writing,
+# no firm-level outcome (hiring by seniority) had been computed or inspected;
+# only data coverage, linkage counts and the exposure crosswalk had been
+# examined (see intermediate/00_design_decisions.md). The SHA-256 of this
+# file is stored in registry/design_space.sha256 and cited in the manuscript.
+# Any change creates version 2 with a dated reason; all versions are reported.
+
+version: 1
+frozen_at: "2026-09-29"
+authoring: >
+  Proposed by an AI research agent (Claude, Anthropic) from the literature listed
+  in research_skills.md Phase 0 under human direction; approved as the fixed,
+  non-replayable input of the loop.
+
+shock:
+  event: "Public release of ChatGPT, 2022-11-30"
+  post_years: [2023, 2024, 2025]
+  pre_years: [2016, 2017, 2018, 2019, 2020, 2021, 2022]
+  reference_year_event_study: 2022
+
+unit: firm-year (Compustat NA gvkey linked to Revelio rcid; calendar years 2016-2025)
+
+outcomes:            # construct: experience tilt of hiring
+  - name: tilt_exp
+    definition: "hires with seniority >= 3 / all hires in year t"
+    h1_sign: "+"
+  - name: hire_sen_mean
+    definition: "mean Revelio seniority (1-7) of hires in year t"
+    h1_sign: "+"
+  - name: entry_rate
+    definition: "100 x hires with seniority <= 2 / headcount in year t-1"
+    h1_sign: "-"
+
+treatments:          # construct: predetermined LLM exposure of the workforce (x Post)
+  - name: expo_beta
+    definition: "sum_r s_ir(2019-2021) * E_r, E_r = posting-weighted Eloundou et al. (2024) GPT-4 beta"
+  - name: expo_human
+    definition: "as expo_beta with human-rated beta"
+  - name: expo_lm
+    definition: "as expo_beta with Felten, Raj & Seamans language-modeling AIOE"
+negative_control_treatment:
+  - name: expo_nonlang
+    definition: "residual of Felten et al. general AIOE on language-modeling AIOE (role level), aggregated as above"
+    expected: "no post-2022 effect"
+
+h1:
+  statement: >
+    Firms whose pre-shock workforce was more exposed to large language models shift
+    their hiring toward experienced workers after the release of ChatGPT (positive
+    effect of exposure x post on the experience tilt of hiring).
+  mechanism: >
+    Generative AI substitutes for the codified outputs (drafts, code, summaries,
+    routine analysis) through which entry-level hires produce value and learn, but
+    not for experienced workers' judgment in evaluating and integrating those outputs;
+    managers staffing work therefore shift marginal hires up the experience ladder.
+  rival: >
+    Skill-compression evidence (AI helps novices most) predicts the opposite sign:
+    firms could substitute cheaper novices made productive by AI.
+
+moderators:          # all predetermined (<= 2021), standardized; sign relative to the H1 effect
+  - name: ilm_share
+    construct: internal labor market strength
+    definition: "share of manager-and-above hires filled by internal movers, 2016-2019"
+    source: Revelio positions (earlier window; different construct from outcome)
+    sign: attenuates
+    mechanism: "Firms that make rather than buy talent depend on entry ports to grow future managers; cutting juniors starves their promotion pipeline (Doeringer & Piore 1971; Bidwell & Keller 2014)."
+  - name: slack_cash
+    construct: financial slack
+    definition: "cash and short-term investments / total assets, FY2019-2021 mean"
+    source: Compustat
+    sign: attenuates
+    mechanism: "Slack funds investments with delayed payoffs such as apprenticeship and buffers pressure for immediate savings (Cyert & March 1963; Bourgeois 1981; Nohria & Gulati 1996)."
+  - name: analysts
+    construct: capital-market short-termism
+    definition: "log(1 + distinct analysts issuing FY1 EPS forecasts), 2019-2021 mean"
+    source: I/B/E/S
+    sign: amplifies
+    mechanism: "Analyst scrutiny rewards visible, near-term cost savings, favouring substitution of juniors (Graham, Harvey & Rajgopal 2005; He & Tian 2013)."
+  - name: firm_age
+    construct: organizational age (structural inertia)
+    definition: "log(1 + years since founding), founding year from Revelio mapping, else first Compustat year"
+    source: Revelio mapping / Compustat
+    sign: attenuates
+    mechanism: "Older organizations have more institutionalized staffing routines and redesign them more slowly (Hannan & Freeman 1984; Sorensen & Stuart 2000)."
+  - name: remote
+    construct: digitizability of work
+    definition: "mean Revelio remote-suitability of active positions, 2019-2021"
+    source: Revelio positions (field not used by outcome or treatment)
+    sign: amplifies
+    mechanism: "Work already codified and performed digitally is easier to reallocate to AI tools."
+  - name: ai_talent_pre
+    construct: absorptive capacity for AI
+    definition: "share of active workforce with core (pre-generative) AI skills, 2019-2021"
+    source: Revelio skills
+    sign: amplifies
+    mechanism: "Prior AI capability lets firms deploy generative AI faster and more deeply (Cohen & Levinthal 1990)."
+  - name: pyramid
+    construct: hierarchy shape
+    definition: "headcount at seniority 1-2 / headcount at seniority >= 4, 2019-2021 (log)"
+    source: Revelio positions (stock, not flow; earlier window)
+    sign: amplifies
+    mechanism: "Bottom-heavy hierarchies hold more of the codified junior task mass that AI can absorb."
+  - name: entry_wage
+    construct: labor cost of juniors
+    definition: "log mean salary of positions at seniority 1-2, 2019-2021"
+    source: Revelio positions (salary field)
+    sign: amplifies
+    mechanism: "Substitution saves more where juniors are expensive."
+  - name: hhi_ind
+    construct: product-market concentration (inverse competition)
+    definition: "sales Herfindahl index of the firm's NAICS-3 industry, FY2019-2021 (Compustat)"
+    source: Compustat
+    sign: attenuates
+    mechanism: "Concentrated industries face weaker pressure to adopt cost-saving technology quickly."
+  - name: rd_int
+    construct: knowledge intensity
+    definition: "R&D / total assets, FY2019-2021 mean (missing R&D = 0 with indicator)"
+    source: Compustat
+    sign: attenuates
+    mechanism: "Tacit, firm-specific knowledge is transmitted through apprenticeship that AI cannot replace (Polanyi 1966; Kogut & Zander 1992)."
+
+controls:
+  C0: []
+  C1: [log_hc_l1, hire_rate_l1, sep_rate_l1, log_at_l1, roa_l1, lev_l1, sales_growth_l1, rd_at_l1]
+  C2: "C1 + (pre-period log headcount) x year dummies + (pre-period hiring growth 2019-2021) x year dummies"
+
+fixed_effects:
+  FE1: [firm, year]
+  FE2: [firm, naics3_x_year]
+
+samples:
+  S1: "2016-2025; firm-years with >= 10 hires"
+  S2: "2016-2025; firm-years with >= 30 hires"
+  S3: "S1 restricted to firms observed in >= 8 of the 10 years"
+
+transforms:
+  W0: none
+  W1: "winsorize outcomes and continuous controls at 1st/99th percentiles by year"
+standardization: "treatment and moderators standardized by cross-firm pre-period SD"
+
+clustering:
+  CL1: firm
+  CL2: naics3
+
+search_policy:
+  order: "lexicographic over outcomes x treatments x controls x fixed_effects x samples x transforms x clustering, each in the order listed"
+  unguarded_U: >
+    For each base specification: fit H1; if the sign-consistent t >= 1.96, fit each
+    moderator singly (E x Post x M plus M x Post); keep moderators significant with
+    the registered sign; try up to 10 triples of mixed sign, ordered by the sum of
+    single |t|; success if all four sign-consistent t >= 1.96 in the joint model.
+    Stop at the first success; otherwise report the package with maximal
+    T = min of the four sign-consistent t.
+  unguarded_free_U: "as U but moderator signs unrestricted (ex post rationalization)"
+  package_statistic: "T = min over H1 and the three moderators of sign-consistent t"
+  h1_statistic: "max over visited base specifications of the sign-consistent t for H1"
+
+guard:
+  split: "firms randomly assigned 50/50 to exploration/confirmation within NAICS-2 strata"
+  seed: 20261101
+  confirmation_model: "the package selected on exploration, re-estimated once on confirmation"
+  multiplicity: "Holm across H1-H4 at alpha = 0.05"
+
+null_worlds:
+  typeA: {permute: treatment (firm-level), within: naics2, B: 1000}
+  typeB: {permute: all moderator candidates independently, within: naics2 x treatment_quintile, B: 500}
+  seeds: "world b uses seed 1000003 * b + 17"
+planted_worlds:
+  beta_star_within_sd: [0.02, 0.05, 0.10]
+  gamma_star_within_sd: [0.02, 0.05]
+  worlds_per_cell: 200
+
+identification_checks: [event_study_pretrends, placebo_2019, placebo_2020, negative_control_exposure,
+  naics3_x_year_fe, drop_information_sector, pre_hiring_growth_x_year, remote_x_year,
+  rotemberg_top_roles_dropped, honest_did_relative_magnitudes, 2sls_genai_share, randomization_inference]
